@@ -1,7 +1,35 @@
-.page {
+.page, .in-app-page {
     height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+.in-app-page {
+    margin-bottom: 80px;
+}
+
+.navbar-brand {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: lightgray;
+}
+
+.navbar-burger {
+    width: auto;
+    margin-left: 0px;
+}
+
+.navbar-plus {
+    justify-self: center;
+    position: relative;
+    bottom: 20px;
+    background-color: #00d1b2;
+    border-radius: 100px;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
 }
 
 #main-page {
@@ -14,11 +42,15 @@
     justify-content: space-evenly;
 }
 
+#home-page, #applications-page {
+    align-items: center;
+}
+
 #login-buttons, #account-buttons {
     text-align: center;
 }
 
-.login-button, .account-button {
+.fixed-size-button {
     width: 250px;
     margin: 10px;
 }
@@ -26,6 +58,7 @@
 .flex-center {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .text-input {
     border: none;
@@ -34,14 +67,25 @@
     border-radius: 0;
 }
 
-#login-form, #create-account-form {
+#login-form, #create-account-form, #my-apps-list {
     margin: 20px;
 }
 
-#alternate-login-options {
+#alternate-login-options, .home-page-flex-data {
     display: flex;
     justify-content: space-around;
     max-width: 100vw;
+}
+
+.home-page-flex-data {
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+}
+
+.flex-buttons {
+    display: flex;
+    justify-content: space-around;
 }
 
 #forgot-password {
@@ -51,4 +95,34 @@
 
 #create-account-page {
     align-items: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+textarea {
+    width: 335px;
+    padding: 11px;
+    /*NEED TO EDIT TEXT SIZE AND COLOR TO MATCH REST OF FORM*/
+}
+
+.app-preview-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.app-preview-top-row {
+    font-size: 16px;
+}
+
+.app-preview-bottom-row {
+    font-size: 14px;
+}
+
+.app-preview-button {
+    margin: 10px;
 }

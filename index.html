@@ -10,17 +10,24 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
         integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+
+    <!--FONTAWESOME ICONS-->
+    <script defer src="node_modules/@fortawesome/fontawesome-free/js/brands.js"></script>
+    <script defer src="node_modules/@fortawesome/fontawesome-free/js/solid.js"></script>
+    <script defer src="node_modules/@fortawesome/fontawesome-free/js/fontawesome.js"></script>
     <script defer src="js/script.js"></script>
 </head>
 
 <body>
-    <nav class="navbar is-fixed-bottom is-hidden" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-fixed-bottom" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="https://bulma.io">
                 <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
             </a>
 
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+            <a class="navbar-plus navbar-item">+</a>
+
+            <a role="button" class="navbar-burger navbar-item" aria-label="menu" aria-expanded="false"
                 data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -30,10 +37,13 @@
 
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item">Find a Restaurant</a>
-                <a class="navbar-item">Review a Restaurant</a>
-                <a class="navbar-item">Register a Restaurant</a>
-
+                <a class="navbar-item">Home</a>
+                <a class="navbar-item">Applications</a>
+                <a class="navbar-item">Events & Networking</a>
+                <a class="navbar-item">Messages</a>
+                <a class="navbar-item">My Profile</a>
+                <a class="navbar-item">Settings</a>
+                <a class="navbar-item">Log Out</a>
                 <!-- <div class="navbar-item has-dropdown-up is-hoverable">
                         <a class="navbar-link">
                             More
@@ -57,7 +67,7 @@
                     </div> -->
             </div>
 
-            <div class="navbar-end">
+            <!-- <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
                         <a class="button is-primary">
@@ -68,15 +78,15 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </nav>
 
     <div id="main-page" class="page is-hidden">
         <p>LOGO</p>
         <div id="login-buttons">
-            <button class="login-button button is-rounded">Log In</button>
-            <button class="login-button button is-primary is-rounded">Sign Up</button>
+            <button class="fixed-size-button button is-rounded">Log In</button>
+            <button class="fixed-size-button button is-primary is-rounded">Sign Up</button>
         </div>
     </div>
     <div id="login-page" class="page is-hidden">
@@ -86,42 +96,177 @@
                 <label class="label">USERNAME</label>
                 <input id="enter-username" class="input text-input" type="text" placeholder="Enter Username...">
                 <label class="label">PASSWORD</label>
-                <input id="target-password" class="input text-input" type="password" placeholder="Enter Password...">
+                <input id="enter-password" class="input text-input" type="password" placeholder="Enter Password...">
                 <a id="forgot-password">Forgot Password?</a>
                 <div class="field">
                     <div class="control flex-center">
-                        <button class="login-button button is-rounded is-primary">Log In</button>
+                        <button class="fixed-size-button button is-rounded is-primary">Log In</button>
                     </div>
                 </div>
             </div>
         </div>
         <p>Or sign in with</p>
-        <div id="alternate-login-options">
+        <div id="alternate-login-options" class="flex-buttons">
             <button class="login-button button is-rounded">Facebook</button>
             <button class="login-button button is-primary is-rounded">Google</button>
         </div>
     </div>
-    <div id="create-account-page" class="page flex-center">
+    <div id="create-account-page" class="page flex-center is-hidden">
         <p>LOGO</p>
         <h4 class="subtitle is-4">Create an Account</h4>
         <div id="create-account-form" class="field">
             <div class="control">
                 <label class="label">USERNAME</label>
-                <input id="enter-username" class="input text-input" type="text" placeholder="Enter Username...">
+                <input id="set-username" class="input text-input" type="text" placeholder="Enter Username...">
                 <label class="label">PASSWORD</label>
-                <input id="target-password" class="input text-input" type="password" placeholder="Enter Password...">
+                <input id="set-password" class="input text-input" type="password" placeholder="Enter Password...">
                 <label class="label">CONFIRM PASSWORD</label>
-                <input id="target-password" class="input text-input" type="password" placeholder="Enter Password...">
+                <input id="confirm-password" class="input text-input" type="password" placeholder="Enter Password...">
                 <a id="forgot-password">Forgot Password?</a>
                 <div class="field">
                     <div id="account-buttons" class="control">
-                        <button class="account-button button is-rounded is-primary">Create Account</button>
-                        <button class="account-button button is-rounded">Cancel</button>
+                        <button class="fixed-size-button button is-rounded is-primary">Create Account</button>
+                        <button class="fixed-size-button button is-rounded">Cancel</button>
                     </div>
                 </div>
             </div>
         </div>
         <p>Already have an account? <a href=""><strong>Sign in</strong></a></p>
+    </div>
+    <div id="home-page" class="in-app-page is-hidden">
+        <p>LOGO</p>
+        <div class="control">
+            <button class="button is-rounded is-primary">Complete Weekly Check-In</button>
+        </div>
+        <div class="home-page-flex-data">
+            <div class="home-page-app-data-box">
+                <h5 class="subtitle is-5">Applications</h5>
+                <div class="flex-column">
+                    <p>This week</p>
+                    <p>##</p>
+                </div>
+                <div class="flex-column">
+                    <p>Total</p>
+                    <p>##</p>
+                </div>
+            </div>
+            <div class="home-page-app-data-box">
+                <h5 class="subtitle is-5">Interviews</h5>
+                <div class="flex-column">
+                    <p>This week</p>
+                    <p>##</p>
+                </div>
+                <div class="flex-column">
+                    <p>Total</p>
+                    <p>##</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="applications-page" class="in-app-page is-hidden">
+        <p>Applications</p>
+        <button class="button fixed-size-button is-rounded is-primary">Add an Application</button>
+        <button class="button fixed-size-button is-rounded is-primary">Update an Application</button>
+        <button class="button fixed-size-button is-rounded is-primary">View Application Data</button>
+        <div class="home-page-flex-data">
+            <div class="home-page-app-data-box">
+                <h5 class="subtitle is-5">Applications</h5>
+                <div class="flex-column">
+                    <p>This week</p>
+                    <p>##</p>
+                </div>
+                <div class="flex-column">
+                    <p>Total</p>
+                    <p>##</p>
+                </div>
+            </div>
+            <div class="home-page-app-data-box">
+                <h5 class="subtitle is-5">Interviews</h5>
+                <div class="flex-column">
+                    <p>This week</p>
+                    <p>##</p>
+                </div>
+                <div class="flex-column">
+                    <p>Total</p>
+                    <p>##</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="add-application-page" class="in-app-page flex-center is-hidden">
+        <h4 class="subtitle is-4">Add an Application</h4>
+        <div id="create-account-form" class="field">
+            <div class="control">
+                <label class="label">JOB TITLE</label>
+                <input class="input text-input" type="text" placeholder="Enter Job Title...">
+                <label class="label">COMPANY</label>
+                <input class="input text-input" type="password" placeholder="Enter Company Name...">
+                <label class="label">DATE APPLIED</label>
+                <input class="input text-input" type="date" placeholder="Select Date...">
+                <label class="label">JOB DESCRIPTION: Upload file or copy/paste text</label>
+                <textarea id="job-description-form" placeholder="Paste Job Description..."></textarea>
+                <label class="label">ADDITIONAL NOTES</label>
+                <textarea id="additional-job-notes-form" placeholder="Enter Additional Notes..."></textarea>
+                <div class="field">
+                    <div class="control">
+                        <button class="fixed-size-button button is-rounded is-primary">Submit</button>
+                        <button class="fixed-size-button button is-rounded">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="search-applications-page" class="in-app-page">
+        <p>My Applications</p>
+        <div class="control flex-column">
+            <div class="field">
+                <p class="control has-icons-left">
+                    <input type="search" class="button fixed-size-button is-rounded" placeholder="Search for an App...">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </p>
+            </div>
+
+
+
+
+            <div>
+                <label for=include-rejected-apps>Include Rejected Applications</label>
+                <input type="checkbox" value="include-rejected-apps" name="include-rejected-apps">
+            </div>
+            <input type="submit" class="button fixed-size-button is-rounded is-primary"></input>
+        </div>
+        <hr>
+        <div id="sort-my-apps" class="flex-center">
+            <p>Sort results by:&nbsp;</p>
+            <div class="select is-rounded is-small">
+                <select>
+                    <option>Job Title</option>
+                    <option>Company</option>
+                    <option>Date Applied</option>
+                    <option>Status</option>
+                </select>
+            </div>
+        </div>
+        <div id="my-apps-list">
+            <div class="app-preview">
+                <div class="app-preview-row app-preview-top-row">
+                    <p>Job Title</p>
+                    <p>Status</p>
+                </div>
+                <div class="app-preview-row app-preview-bottom-row">
+                    <p>Company</p>
+                    <p>Date Applied</p>
+                </div>
+                <div id="app-preview-buttons" class="control flex-buttons">
+                    <button class="button app-preview-button is-rounded is-primary is-small">Update or Review</button>
+                    <button class="button app-preview-button is-rounded is-small">Mark as Rejected</button>
+                </div>
+                <hr>
+            </div>
+        </div>
+
     </div>
 </body>
 
