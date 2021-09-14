@@ -1,8 +1,19 @@
 console.log('hey');
 
 $('.navbar-burger').on('click', () => {
+    console.log('boigeh')
     $('#navbarBasicExample').toggle();
     $('.navbar-burger').toggleClass('is-active');
+})
+$('.navbar-home').on('click', () => {
+    console.log('home')
+    $('#navbarBasicExample').css('display', 'none');
+    $('.navbar-home').toggleClass('is-active');
+})
+$('.navbar-plus').on('click', () => {
+    console.log('plus')
+    $('#navbarBasicExample').css('display', 'none');
+    $('.navbar-plus').toggleClass('is-active');
 })
 
 $('#restaurant-page-bottom-about-link').on('click', (event) => {
