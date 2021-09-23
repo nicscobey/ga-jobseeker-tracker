@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs'); %>
+
+
+    <body>
+        <%- include('../partials/navbar.ejs') %>
+            <div id="add-application-page" class="in-app-page flex-center">
+                <h4 class="subtitle is-4">Add an Application</h4>
+                <form id="create-account-form" class="field">
+                    <div class="control">
+                        <label class="label">JOB TITLE</label>
+                        <input class="input text-input" type="text" placeholder="Enter Job Title..." required>
+                        <label class="label">COMPANY</label>
+                        <input class="input text-input" type="password" placeholder="Enter Company Name..." required>
+                        <label class="label">DATE APPLIED</label>
+                        <input class="input text-input" type="date" placeholder="Select Date..." required>
+                        <label class="label">JOB DESCRIPTION: Upload file or copy/paste text</label>
+                        <textarea id="job-description-form" placeholder="Paste Job Description..." required></textarea>
+                        <label class="label">ADDITIONAL NOTES</label>
+                        <textarea id="additional-job-notes-form" placeholder="Enter Additional Notes..."
+                            required></textarea>
+                        <div class="field">
+                            <div class="control">
+                                <button class="fixed-size-button button is-rounded is-primary">Submit</button>
+                                <button class="fixed-size-button button is-rounded">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    </body>
+
+</html>
