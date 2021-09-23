@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs'); %>
+
+    <body>
+        <div id="create-account-page" class="page flex-center">
+            <p>LOGO</p>
+            <h4 class="subtitle is-4">Create an Account</h4>
+            <div id="create-account-form" class="field">
+                <div class="control">
+                    <label class="label">USERNAME</label>
+                    <input id="set-username" class="input text-input" type="text" placeholder="Enter Username...">
+                    <label class="label">PASSWORD</label>
+                    <input id="set-password" class="input text-input" type="password" placeholder="Enter Password...">
+                    <label class="label">CONFIRM PASSWORD</label>
+                    <input id="confirm-password" class="input text-input" type="password"
+                        placeholder="Enter Password...">
+                    <a id="forgot-password">Forgot Password?</a>
+                    <div class="field">
+                        <div id="account-buttons" class="control">
+                            <button class="fixed-size-button button is-rounded is-primary">Create Account</button>
+                            <button class="fixed-size-button button is-rounded">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p>Already have an account? <a href="/login"><strong>Sign in</strong></a></p>
+        </div>
+    </body>
+
+</html>

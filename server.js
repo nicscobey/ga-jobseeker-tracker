@@ -5,8 +5,19 @@ const port = 3000;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 
+//main
 app.get('/', (req, res) => {
-    res.send('GA')
+    res.render('all/main.ejs');
+})
+
+//log in
+app.get('/login', (req, res) => {
+    res.render('all/main_login.ejs');
+})
+
+//create account
+app.get('/create', (req, res) => {
+    res.render('all/main_create.ejs');
 })
 
 //student home

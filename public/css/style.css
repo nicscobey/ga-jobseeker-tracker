@@ -14,10 +14,23 @@
     background-color: #017990;
 }
 
+.button.is-primary-inverted {
+    border-color: #017990;
+    color: #017990;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+a {
+    color: #FA4542;
+}
+
 .navbar-brand {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    background-color: lightgray;
+    background-color: #ececec;
 }
 
 .navbar-burger {
@@ -110,6 +123,15 @@ svg {
 .flex-buttons {
     display: flex;
     justify-content: space-around;
+}
+
+.button.yellow-solid-button {
+    background-color: #FFDA00;
+    color: #4a4a4a;
+}
+
+.button.yellow-outline-button {
+    border-color: #FFDA00;
 }
 
 #forgot-password {
