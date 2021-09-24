@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs'); %>
+
+
+    <body>
+        <%- include('../partials/navbar.ejs') %>
+            <div id="search-applications-page" class="in-app-page">
+                <h3>Cohort Name</h3>
+                <div id="my-apps-list">
+                    <div class="app-details">
+                        <div class="app-details-row app-details-top-row">
+                            <p>Job Title</p>
+                            <p>Status</p>
+                        </div>
+                        <div class="app-details-row app-details-bottom-row">
+                            <p>Company</p>
+                            <p>Date Applied</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div id="coach-home-buttons" class="control flex-column">
+                        <a href="/coach/my_classes"><button class="fixed-size-button button is-rounded is-primary">View
+                                Flagged Students</button></a>
+                        <button class="fixed-size-button button is-rounded is-primary">View All Students</button>
+                    </div>
+                </div>
+            </div>
+
+    </body>
+
+</html>

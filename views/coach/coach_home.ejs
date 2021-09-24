@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs'); %>
+
+
+    <body>
+        <%- include('../partials/navbar.ejs') %>
+            <div id="search-applications-page" class="in-app-page">
+                <p>LOGO</p>
+                <div class="control flex-column">
+                    <div class="field">
+                        <p class="control has-icons-left">
+                            <input type="search" class="yellow-outline-button button fixed-size-button is-rounded"
+                                placeholder="Find a Class or Student...">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </p>
+                        <button type="submit"
+                            class="fixed-size-button button is-rounded is-primary yellow-solid-button">Search</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="field">
+                    <div id="coach-home-buttons" class="control flex-column">
+                        <a href="/coach/my_classes"><button class="fixed-size-button button is-rounded is-primary">My
+                                Classes</button></a>
+                        <button class="fixed-size-button button is-rounded is-primary">My Students</button>
+                        <button class="fixed-size-button button is-rounded is-primary">Flagged Students</button>
+                    </div>
+                </div>
+            </div>
+    </body>
+
+</html>

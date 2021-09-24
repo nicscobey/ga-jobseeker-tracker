@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs'); %>
+
+
+    <body>
+        <%- include('../partials/navbar.ejs') %>
+            <div id="search-applications-page" class="in-app-page">
+                <p>My Classes (##)</p>
+                <div class="control flex-column">
+                    <div class="field">
+                        <div class="control has-icons-left">
+                            <input type="search" class="yellow-outline-button button fixed-size-button is-rounded"
+                                placeholder="Find a Class...">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </div>
+                        <button type="submit"
+                            class="fixed-size-button button is-rounded is-primary yellow-solid-button">Search</button>
+                    </div>
+                </div>
+                <hr>
+                <div id="sort-my-apps" class="flex-center">
+                    <p>Sort results by:&nbsp;</p>
+                    <div class="select is-rounded is-small">
+                        <select>
+                            <option>Job Title</option>
+                            <option>Company</option>
+                            <option>Date Applied</option>
+                            <option>Status</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="my-apps-list">
+                    <div class="app-details">
+                        <h3>Cohort Name</h3>
+                        <div class="app-details-row app-details-top-row">
+                            <p>Job Title</p>
+                            <p>Status</p>
+                        </div>
+                        <div class="app-details-row app-details-bottom-row">
+                            <p>Company</p>
+                            <p>Date Applied</p>
+                        </div>
+                        <div id="app-details-buttons" class="control flex-buttons">
+                            <button class="button app-preview-button is-rounded is-primary is-small">Update or
+                                Review</button>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+    </body>
+
+</html>

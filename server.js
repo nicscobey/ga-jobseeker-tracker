@@ -45,6 +45,35 @@ app.get('/student/:appID', (req, res) => {
     res.render('student/student_show_application.ejs');
 })
 
+////////////////
+//COACH VIEWS
+////////////////
+
+//coach home
+app.get('/coach/home', (req, res) => {
+    res.render('coach/coach_home.ejs');
+})
+
+//coach new
+app.get('/coach/add_application', (req, res) => {
+    // res.render('student/student_new_application.ejs')
+})
+
+//coach class index
+app.get('/coach/my_classes', (req, res) => {
+    res.render('coach/coach_index_classes.ejs')
+})
+
+//student edit
+app.get('/student/:appID/edit', (req, res) => {
+    res.render('student/student_edit_application.ejs')
+})
+
+//coach show class
+app.get('/coach/my_classes/:classID', (req, res) => {
+    res.render('coach/coach_show_class.ejs');
+})
+
 app.listen(port, (req, res) => {
     console.log('job tracker at ', port)
 })
