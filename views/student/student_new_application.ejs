@@ -8,22 +8,33 @@
         <%- include('../partials/navbar.ejs') %>
             <div id="add-application-page" class="in-app-page flex-center">
                 <h4 class="subtitle is-4">Add an Application</h4>
-                <form id="create-account-form" class="field">
+                <form id="create-account-form" class="field form-set-width">
                     <div class="control">
-                        <label class="label">JOB TITLE</label>
-                        <input class="input text-input" type="text" placeholder="Enter Job Title..." required>
-                        <label class="label">COMPANY</label>
-                        <input class="input text-input" type="password" placeholder="Enter Company Name..." required>
-                        <label class="label">DATE APPLIED</label>
-                        <input class="input text-input" type="date" placeholder="Select Date..." required>
-                        <label class="label">JOB DESCRIPTION</label>
-                        <textarea class="fixed-textarea" id="job-description-form"
-                            placeholder="Paste Job Description..." required></textarea>
-                        <label class="label">ADDITIONAL NOTES</label>
-                        <textarea class="fixed-textarea" id="additional-job-notes-form"
-                            placeholder="Enter Additional Notes..." required></textarea>
+                        <label class="label">
+                            JOB TITLE
+                            <input class="input text-input" type="text" placeholder="Enter Job Title..." required>
+                        </label>
+                        <label class="label">
+                            COMPANY
+                            <input class="input text-input" type="password" placeholder="Enter Company Name..."
+                                required>
+                        </label>
+                        <label class="label">
+                            DATE APPLIED
+                            <input class="input text-input" type="date" placeholder="Select Date..." required>
+                        </label>
+                        <label class="label">
+                            JOB DESCRIPTION
+                            <textarea class="fixed-textarea" id="job-description-form"
+                                placeholder="Paste Job Description..." required></textarea>
+                        </label>
+                        <label class="label">
+                            ADDITIONAL NOTES
+                            <textarea class="fixed-textarea" id="additional-job-notes-form"
+                                placeholder="Enter Additional Notes..." required></textarea>
+                        </label>
                         <div class="field">
-                            <div class="control">
+                            <div class="control flex-column">
                                 <button class="fixed-size-button button is-rounded is-primary">Submit</button>
                                 <button class="fixed-size-button button is-rounded">Cancel</button>
                             </div>
