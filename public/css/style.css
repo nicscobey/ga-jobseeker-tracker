@@ -14,6 +14,10 @@
     background-color: #017990;
 }
 
+.button.is-primary:hover, .button.is-primary:active {
+    background-color: #00687d;
+}
+
 .button.is-primary-inverted {
     border-color: #017990;
     color: #017990;
@@ -39,10 +43,43 @@ a {
 }
 
 .navbar-item {
-    justify-self: end;
+    justify-self: center;
     display: flex;
     flex-direction: column;
-    /* justify-content:last baseline; */
+}
+
+a.navbar-item {
+    padding: 10px;
+    align-items: flex-start;
+}
+
+a.navbar-item:hover {
+    color: #017990;
+}
+
+a.navbar-item-label {
+    color: #4a4a4a;
+}
+
+.navbar-item-desktop {
+    justify-content: center;
+}
+
+.navbar-item-label {
+    padding-left: 15px;
+}
+
+.navbar-desktop {
+    display: none;
+    background-color: #ececec;
+}
+
+.navbar-link:not(.is-arrowless)::after, .select:not(.is-multiple):not(.is-loading)::after {
+    border-color: #FA4542;
+}
+
+.navbar-dropdown {
+    border-color: #FFDA00;
 }
 
 .navbar-plus {
@@ -101,7 +138,7 @@ svg {
 .text-input {
     border: none;
     box-shadow: none;
-    border-bottom: 1px solid blue;
+    border-bottom: 1px solid #017990;
     border-radius: 0;
 }
 
@@ -128,6 +165,11 @@ svg {
 
 .button.yellow-solid-button {
     background-color: #FFDA00;
+    color: #4a4a4a;
+}
+
+.button.yellow-solid-button:hover, .button.yellow-solid-button:active {
+    background-color: #f5d100;
     color: #4a4a4a;
 }
 
@@ -187,4 +229,27 @@ textarea {
 
 .application-details-page-details {
     margin-top: 0;
+}
+
+@media screen and (min-width: 1024px) {
+    .navbar-mobile {
+        display: none;
+    }
+
+    .navbar-desktop {
+        display: block;
+    }
+}
+
+input:active, input:focus {
+    color: #017990;
+}
+
+label {
+    margin-top: 20px;
+}
+
+.fixed-textarea {
+    width: 100%;
+    resize: vertical;
 }
