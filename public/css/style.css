@@ -21,6 +21,7 @@
 
 .button.is-primary {
     background-color: #017990;
+    /* background-color: #97049F; */
 }
 
 .button.is-primary:hover, .button.is-primary:active {
@@ -80,15 +81,22 @@ a.navbar-item-label {
 
 .navbar-desktop {
     display: none;
-    background-color: #ececec;
+    background-color: white;
+    border-bottom: 1px solid #ececec;
 }
 
+/* .navbar-mobile.navbar-brand {
+    background-color: white;
+    border-top: 1px solid #ececec;
+    border-bottom: 1px solid #ececec;
+} */
+
 .navbar-link:not(.is-arrowless)::after, .select:not(.is-multiple):not(.is-loading)::after {
-    border-color: #FA4542;
+    border-color: #00C2CB;
 }
 
 .navbar-dropdown {
-    border-color: #FFDA00;
+    border-color: #C8D96F;
 }
 
 .navbar-plus {
@@ -118,6 +126,9 @@ svg {
 #main-page {
     justify-content: space-around;
     align-items: center;
+    background-image: url('/images/background-blue.svg');
+    background-position: center;
+    background-size: cover;
 }
 
 #login-page {
@@ -133,6 +144,10 @@ svg {
     text-align: center;
 }
 
+h3 {
+    margin: 24px;
+}
+
 .fixed-size-button {
     width: 250px;
     margin: 10px;
@@ -145,12 +160,12 @@ svg {
 }
 
 .input:focus, .input:active, .select select:focus, .select select:active, .button:focus:not(:active) {
-    box-shadow: 0 0 0 0.125em #FFDA00;
+    box-shadow: 0 0 0 0.125em #CD09D7;
     border-color: #dbdbdb;
 }
 
 textarea:focus-visible {
-    outline-color: #FFDA00;
+    outline-color: #CD09D7;
 }
 
 .text-input {
@@ -160,8 +175,13 @@ textarea:focus-visible {
     border-radius: 0;
 }
 
-#login-form, #create-account-form, #my-apps-list, .margin-20px {
+#login-form, #create-account-form, .my-list, .margin-20px {
     margin: 20px;
+}
+
+.my-list {
+    margin-right: auto;
+    margin-left: auto;
 }
 
 #alternate-login-options, .home-page-flex-data {
@@ -170,7 +190,7 @@ textarea:focus-visible {
     max-width: 100vw;
 }
 
-.form-set-width {
+.form-set-width, .my-list {
     width: 90%;
     max-width: 800px;
 }
@@ -187,17 +207,17 @@ textarea:focus-visible {
 }
 
 .button.yellow-solid-button {
-    background-color: #FFDA00;
+    background-color: #C8D96F;
     color: #4a4a4a;
 }
 
 .button.yellow-solid-button:hover, .button.yellow-solid-button:active {
-    background-color: #f5d100;
+    background-color: #b4c464;
     color: #4a4a4a;
 }
 
 .button.yellow-outline-button {
-    border-color: #FFDA00;
+    border-color: #C8D96F;
 }
 
 #forgot-password {
