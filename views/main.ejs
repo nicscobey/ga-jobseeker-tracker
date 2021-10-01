@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../partials/head.ejs'); %>
+<%- include('./partials/head.ejs'); %>
 
     <body>
-        <div id="main-page" class="page">
+        <div id="main-page" class="page main-pages-background">
             <div class="flex-column">
                 <img src="/images/app-buddy-light.png" width="275px">
                 <p style="text-align:center;">by</p>
                 <img src="/images/logo-large.png" width="100px" style="text-align:center;">
             </div>
             <div id="login-buttons">
-                <a href="/login"><button class="fixed-size-button button is-rounded bold-text is-primary-inverted">Log
+                <a href="/user/login"><button
+                        class="fixed-size-button button is-rounded bold-text is-primary-inverted">Log
                         In</button></a>
-                <a href="/create"><button class="fixed-size-button button is-primary is-rounded bold-text">Sign
+                <a href="/user/signup"><button class="fixed-size-button button is-primary is-rounded bold-text">Sign
                         Up</button></a>
             </div>
         </div>

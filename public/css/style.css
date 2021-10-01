@@ -9,7 +9,7 @@
 }
 
 .mobile-icon:hover {
-    color: #FA4542;
+    color: #805D93;
     background-color: #ececec;
 }
 
@@ -38,7 +38,7 @@
 }
 
 a {
-    color: #FA4542;
+    color: #805D93;
 }
 
 .navbar-brand {
@@ -103,7 +103,7 @@ a.navbar-item-label {
     position: absolute;
     bottom: 80px;
     right: 6px;
-    background-color: #FA4542;
+    background-color: #805D93;
     border-radius: 100px;
     height: 3rem !important;
     width: 3rem !important;
@@ -123,9 +123,12 @@ svg {
     height: 26px !important;
 }
 
-#main-page {
+#main-page  {
     justify-content: space-around;
     align-items: center;
+}
+
+.main-pages-background {
     background-image: url('/images/background-blue.svg');
     background-position: center;
     background-size: cover;
@@ -160,12 +163,12 @@ h3 {
 }
 
 .input:focus, .input:active, .select select:focus, .select select:active, .button:focus:not(:active) {
-    box-shadow: 0 0 0 0.125em #CD09D7;
+    box-shadow: 0 0 0 0.125em #805D93;
     border-color: #dbdbdb;
 }
 
 textarea:focus-visible {
-    outline-color: #CD09D7;
+    outline-color: #805D93;
 }
 
 .text-input {
@@ -293,7 +296,7 @@ textarea {
         position: absolute;
         bottom: 10px;
         right: 10px;
-        background-color: #FA4542;
+        background-color: #805D93;
         border-radius: 100px;
         height: 3rem !important;
         width: 3rem !important;

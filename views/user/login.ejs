@@ -4,14 +4,16 @@
 <%- include('../partials/head.ejs'); %>
 
     <body>
-        <div id="login-page" class="page">
+        <div id="login-page" class="page main-pages-background">
             <img src="/images/app-buddy-light.png" width="275px">
-            <div id="login-form" class="field">
+            <form action="/user/login" method="post" id="login-form" class="field">
                 <div class="control">
                     <label class="label">USERNAME</label>
-                    <input id="enter-username" class="input text-input" type="text" placeholder="Enter Username...">
+                    <input id="enter-username" class="input text-input" type="text" placeholder="Enter Username..."
+                        required>
                     <label class="label">PASSWORD</label>
-                    <input id="enter-password" class="input text-input" type="password" placeholder="Enter Password...">
+                    <input id="enter-password" class="input text-input" type="password" placeholder="Enter Password..."
+                        required>
                     <a id="forgot-password">Forgot Password?</a>
                     <div class="field">
                         <div class="control flex-center">
@@ -19,13 +21,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
             <p>Or sign in with</p>
             <div id="alternate-login-options" class="flex-buttons">
                 <button class="login-button button is-rounded">Facebook</button>
                 <button class="login-button button is-primary is-rounded">Google</button>
             </div>
-            <p>Don't have an account? <a href="/create"><strong>Create one</strong></a></p>
+            <p>Don't have an account? <a href="/user/signup"><strong>Create one</strong></a></p>
 
         </div>
     </body>
