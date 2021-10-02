@@ -10,42 +10,37 @@
         <%- include('../partials/navbar.ejs') %>
             <div id="application-details-page" class="in-app-page">
                 <div class="application-details-page-buttons">
-                    <a href="">
+                    <a href="/student/my_applications">
                         <span class="icon is-large">
                             <i class="fas fa-lg fa-arrow-left"></i>
                         </span>
                     </a>
-                    <a href=""><span class="icon is-large">
+                    <a href="/student/<%=app._id%>/edit"><span class="icon is-large">
                             <i class="fas fa-lg fa-edit"></i>
                         </span>
                     </a>
                 </div>
                 <div class="application-details-page-details margin-20px">
-                    <h4 class="subtitle is-4 no-margin center-text">Job Title</h4>
-                    <h5 class="subtitle is-5 no-margin center-text">Company</h5>
-                    <h5 class="subtitle is-5 no-margin center-text">Date Applied: ##/##/####</h5>
-                    <h5 class="subtitle is-5 no-margin center-text">Status: @@@@@@@</h5>
+                    <h4 class="subtitle is-4 no-margin center-text">
+                        <%=app.title%>
+                    </h4>
+                    <h5 class="subtitle is-5 no-margin center-text">
+                        <%=app.employer%>
+                    </h5>
+                    <h5 class="subtitle is-5 no-margin center-text">Date Applied: <%=app.dateApplied%>
+                    </h5>
+                    <h5 class="subtitle is-5 no-margin center-text">Status: <%=app.status%>
+                    </h5>
                     <div class="app-details">
                         <h5 class="subtitle is-5">Job Description</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                            nisi ut
-                            aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                            esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-                            in
-                            culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>
+                            <%=app.jobDescription%>
+                        </p>
                     </div>
                     <h5 class="subtitle is-5">Notes</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore
-                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                        ut
-                        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa
-                        qui officia deserunt mollit anim id est laborum.</p>
+                    <p>
+                        <%=app.notes%>
+                    </p>
                 </div>
             </div>
     </body>

@@ -3,13 +3,22 @@
 
 <%- include('../partials/head.ejs'); %>
 
-
     <body>
         <%- include('../partials/navbar.ejs') %>
             <div id="home-page" class="in-app-page">
                 <h3 class="title is-3">My Job Tracker</h3>
-                <div class="control">
-                    <button class="button is-rounded is-primary">Complete Weekly Check-In</button>
+                <div class="control flex-column">
+                    <a href="">
+                        <button class="button is-rounded is-primary">Complete Weekly Check-In</button>
+                    </a>
+                    <br>
+                    <a href="/student/add_application">
+                        <button class="button is-rounded is-primary">Record New Application</button>
+                    </a>
+                    <br>
+                    <a href="/student/my_applications">
+                        <button class="button is-rounded is-primary">View My Applications</button>
+                    </a>
                 </div>
                 <div class="home-page-flex-data">
                     <div class="home-page-app-data-box">
@@ -20,7 +29,9 @@
                         </div>
                         <div class="flex-column">
                             <p>Total</p>
-                            <p>##</p>
+                            <p>
+                                <%=apps.length%>
+                            </p>
                         </div>
                     </div>
                     <div class="home-page-app-data-box">

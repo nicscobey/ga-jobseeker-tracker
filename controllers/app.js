@@ -55,7 +55,7 @@ router.get('/seed', (req, res) => {
 //student home
 router.get('/', async (req, res) => {
     const apps = await App.find({})
-    res.render('student/student_home.ejs');
+    res.render('student/student_home.ejs', { apps });
 })
 
 
@@ -90,12 +90,19 @@ router.post('/add_application', (req, res) => {
 
 //edit app
 router.get('/:appID/edit', (req, res) => {
-    res.render('student/edit_app.ejs')
+    const id = req.params.appID;
+    App.findByIdAndUpdate(id, (err, app) => {
+        res.render('student/edit_app.ejs', { app })
+    })
 })
 
 //show app
 router.get('/:appID', (req, res) => {
-    res.render('student/show_app.ejs');
+    const id = req.params.appID;
+    App.findById(id, (err, app) => {
+        res.render('student/show_app.ejs', { app });
+    })
+
 })
 
 module.exports = router;
