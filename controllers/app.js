@@ -1,19 +1,20 @@
 const express = require('express');
 // const User = require('../models/app');
-const { application } = require('express');
+// const { application } = require('express');
 const App = require('../models/app');
 
 const router = express.Router();
 
 
-//router middleware
-// router.use((req, res, next) => {
-//     if (req.session.loggedIn) {
-//         next();
-//     } else {
-//         res.redirect('/');
-//     }
-// })
+// router middleware
+router.use((req, res, next) => {
+    console.log("A", req.session.loggedIn)
+    if (req.session.loggedIn) {
+        next();
+    } else {
+        res.redirect('/');
+    }
+})
 
 //seed apps
 router.get('/seed', (req, res) => {
@@ -75,14 +76,16 @@ router.get('/add_application', (req, res) => {
 //update app
 router.put('/:id', (req, res) => {
     const id = req.params.id;
+    console.log(id);
 
     App.findByIdAndUpdate(id, req.body, { new: true }, (err, app) => {
-        res.redirect('/:id')
+        res.redirect(`/student/${id}`)
     })
 })
 
 //create app
 router.post('/add_application', (req, res) => {
+    req.body.username = req.session.username;
     App.create(req.body, (err, app) => {
         res.redirect('student/student_home.ejs')
     })
@@ -91,7 +94,7 @@ router.post('/add_application', (req, res) => {
 //edit app
 router.get('/:appID/edit', (req, res) => {
     const id = req.params.appID;
-    App.findByIdAndUpdate(id, (err, app) => {
+    App.findById(id, (err, app) => {
         res.render('student/edit_app.ejs', { app })
     })
 })

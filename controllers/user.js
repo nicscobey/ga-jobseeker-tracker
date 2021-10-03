@@ -20,23 +20,36 @@ router.get('/login', (req, res) => {
 })
 
 //post log in
-router.post('/login', async (req, res) => {
+router.post('/login', (req, res) => {
     //get username and password
     const { username, password } = req.body;
 
     //check if user exists
-    User.findOne({ username }, async (err, user) => {
-        if (err) res.send("User does not exist");
+    User.findOne({ username }, (err, user) => {
+        if (!user) {
+            res.send("User does not exist");
+        }
+        else {
+            // check if password matches
+            const result = bcrypt.compareSync(password, user.password);
+            console.log('password', password);
+            console.log('user.password', user.password);
+            console.log('result', result);
+
+            if (password === user.password) {
+                console.log('yay!')
+            }
+
+            if (result) {
+                req.session.loggedIn = true;
+                req.session.username = username;
+                res.redirect('/student')
+            }
+            else {
+                res.send("Wrong password!");
+            }
+        }
     })
-
-    const result = await bcrypt.compare(password, user.password);
-
-    if (!result) res.send("Wrong password!");
-
-    req.session.logginIn = true;
-    req.session.username = username;
-
-    res.redirect('/student/home')
 })
 
 //NEED TO ADD LOGOUT BUTTON
@@ -57,6 +70,7 @@ router.post('/signup', async (req, res) => {
     req.body.password = await bcrypt.hash(req.body.password, await bcrypt.genSalt(10));
 
     User.create(req.body, (err, user) => {
+        console.log(user);
         res.redirect('/user/login');
     })
 })

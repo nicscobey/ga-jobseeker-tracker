@@ -7,28 +7,49 @@
         <%- include('../partials/navbar.ejs') %>
             <div id="add-application-page" class="in-app-page flex-center">
                 <h4 class="subtitle is-4">Edit an Application</h4>
-                <form id="create-account-form" class="field">
+                <form action="/student/<%=app._id%>?_method=PUT" method="POST" id="create-account-form" class="field">
                     <div class="control">
-                        <label class="label">JOB TITLE</label>
-                        <input class="input text-input" type="text" placeholder="Enter Job Title...">
-                        <label class="label">COMPANY</label>
-                        <input class="input text-input" type="password" placeholder="Enter Company Name...">
-                        <label class="label">DATE APPLIED</label>
-                        <input class="input text-input" type="date" placeholder="Select Date...">
-                        <label class="label">JOB DESCRIPTION: Upload file or copy/paste text</label>
-                        <textarea id="job-description-form" class="fixed-textarea"
-                            placeholder="Paste Job Description..."></textarea>
-                        <label class="label">ADDITIONAL NOTES</label>
-                        <textarea id="additional-job-notes-form" class="fixed-textarea"
-                            placeholder="Enter Additional Notes..."></textarea>
+                        <label class="label">
+                            JOB TITLE<input name="title" class="input text-input" type="text" value="<%=app.title%>">
+                        </label>
+                        <label class="label">
+                            COMPANY<input name="employer" class="input text-input" type="text"
+                                value="<%=app.employer%>">
+                        </label>
+                        <label class="label">
+                            DATE APPLIED<input name="dateApplied" class="input text-input" type="date"
+                                value="<%=app.dateApplied%>">
+                        </label>
+                        <label class="label">
+                            STATUS
+                            <select name="status">
+                                <option>Applied - No Response</option>
+                                <option>Applied - Under Consideration</option>
+                                <option>Interviewing</option>
+                                <option>Rejected</option>
+                            </select>
+                        </label>
+                        <label class="label">
+                            JOB DESCRIPTION
+                            <textarea name="jobDescription" id="job-description-form"
+                                class="fixed-textarea"><%=app.jobDescription%></textarea>
+                        </label>
+                        <label class="label">
+                            ADDITIONAL NOTES<textarea name="notes" id="additional-job-notes-form"
+                                class="fixed-textarea"><%=app.notes%></textarea>
+                        </label>
+
                         <div class="field">
                             <div class="control">
-                                <button class="fixed-size-button button is-rounded is-primary">Update</button>
-                                <button class="fixed-size-button button is-rounded">Cancel</button>
+                                <input type="submit" class="fixed-size-button button is-rounded is-primary"
+                                    value="Update"></input>
                             </div>
                         </div>
                     </div>
                 </form>
+                <a href="/student/<%=app._id%>">
+                    <button class="fixed-size-button button is-rounded">Cancel</button>
+                </a>
             </div>
     </body>
 

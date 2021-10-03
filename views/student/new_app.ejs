@@ -12,35 +12,49 @@
                     <div class="control">
                         <label class="label">
                             JOB TITLE
-                            <input class="input text-input" type="text" placeholder="Enter Job Title..." required>
-                        </label>
-                        <label class="label">
-                            COMPANY
-                            <input class="input text-input" type="password" placeholder="Enter Company Name..."
+                            <input name="title" class="input text-input" type="text" placeholder="Enter Job Title..."
                                 required>
                         </label>
                         <label class="label">
+                            COMPANY
+                            <input name="employer" class="input text-input" type="text"
+                                placeholder="Enter Company Name..." required>
+                        </label>
+                        <label class="label">
                             DATE APPLIED
-                            <input class="input text-input" type="date" placeholder="Select Date..." required>
+                            <input name="dateApplied" class="input text-input" type="date" placeholder="Select Date..."
+                                required>
+                        </label>
+                        <label class="label">
+                            STATUS
+                            <select name="status">
+                                <option>Applied - No Response</option>
+                                <option>Applied - Under Consideration</option>
+                                <option>Interviewing</option>
+                                <option>Rejected</option>
+                            </select>
                         </label>
                         <label class="label">
                             JOB DESCRIPTION
-                            <textarea class="fixed-textarea" id="job-description-form"
+                            <textarea name="jobDescription" class="fixed-textarea" id="job-description-form"
                                 placeholder="Paste Job Description..." required></textarea>
                         </label>
                         <label class="label">
                             ADDITIONAL NOTES
-                            <textarea class="fixed-textarea" id="additional-job-notes-form"
+                            <textarea name="notes" class="fixed-textarea" id="additional-job-notes-form"
                                 placeholder="Enter Additional Notes..." required></textarea>
                         </label>
                         <div class="field">
                             <div class="control flex-column">
                                 <button class="fixed-size-button button is-rounded is-primary">Submit</button>
-                                <button class="fixed-size-button button is-rounded">Cancel</button>
+
                             </div>
                         </div>
                     </div>
                 </form>
+                <a href="/student">
+                    <button class="fixed-size-button button is-rounded">Cancel</button>
+                </a>
             </div>
     </body>
 

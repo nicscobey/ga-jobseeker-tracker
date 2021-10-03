@@ -8,16 +8,19 @@
             <img src="/images/app-buddy-light.png" width="275px">
             <form action="/user/login" method="post" id="login-form" class="field">
                 <div class="control">
-                    <label class="label">USERNAME</label>
-                    <input id="enter-username" class="input text-input" type="text" placeholder="Enter Username..."
-                        required>
-                    <label class="label">PASSWORD</label>
-                    <input id="enter-password" class="input text-input" type="password" placeholder="Enter Password..."
-                        required>
+                    <label class="label">
+                        USERNAME<input name="username" id="enter-username" class="input text-input" type="text"
+                            placeholder="Enter Username..." required>
+                    </label>
+                    <label class="label">
+                        PASSWORD<input name="password" id="enter-password" class="input text-input" type="password"
+                            placeholder="Enter Password..." required>
+                    </label>
                     <a id="forgot-password">Forgot Password?</a>
                     <div class="field">
                         <div class="control flex-center">
-                            <button class="fixed-size-button button is-rounded is-primary">Log In</button>
+                            <input type="submit" class="fixed-size-button button is-rounded is-primary"
+                                value="Log In"></input>
                         </div>
                     </div>
                 </div>
@@ -28,7 +31,6 @@
                 <button class="login-button button is-primary is-rounded">Google</button>
             </div>
             <p>Don't have an account? <a href="/user/signup"><strong>Create one</strong></a></p>
-
         </div>
     </body>
 

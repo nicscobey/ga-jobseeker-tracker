@@ -15,16 +15,16 @@ const userSchema = new Schema(
         password: { type: String, required: true },
         email: { type: String, required: true, unique: true },
         accountType: { type: String, default: "Student", required: true },
-        apps: [
-            {
-                title: String,
-                employer: String,
-                jobDescription: String,
-                dateApplied: Date,
-                status: { type: String, default: "Applied" },
-                notes: String
-            }
-        ]
+        // apps: [
+        //     {
+        //         title: String,
+        //         employer: String,
+        //         jobDescription: String,
+        //         dateApplied: Date,
+        //         status: { type: String, default: "Applied" },
+        //         notes: String
+        //     }
+        // ]
     },
     {
         timestamps: true
