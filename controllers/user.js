@@ -21,16 +21,19 @@ router.get('/login', (req, res) => {
 
 //post log in
 router.post('/login', (req, res) => {
-    //get username and password
-    const { username, password } = req.body;
+    //get email and password
+    const { email, password } = req.body;
+    console.log(email);
+    console.log(password);
 
     //check if user exists
-    User.findOne({ username }, (err, user) => {
+    User.findOne({ email }, (err, user) => {
         if (!user) {
             res.send("User does not exist");
         }
         else {
             // check if password matches
+            console.log(user);
             const result = bcrypt.compareSync(password, user.password);
             console.log('password', password);
             console.log('user.password', user.password);
@@ -42,7 +45,7 @@ router.post('/login', (req, res) => {
 
             if (result) {
                 req.session.loggedIn = true;
-                req.session.username = username;
+                req.session.email = email;
                 res.redirect('/student')
             }
             else {
@@ -70,7 +73,9 @@ router.post('/signup', async (req, res) => {
     req.body.password = await bcrypt.hash(req.body.password, await bcrypt.genSalt(10));
 
     User.create(req.body, (err, user) => {
+        console.log('*************************USER****************')
         console.log(user);
+        console.log(err);
         res.redirect('/user/login');
     })
 })

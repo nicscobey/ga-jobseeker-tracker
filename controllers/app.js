@@ -8,7 +8,7 @@ const router = express.Router();
 
 // router middleware
 router.use((req, res, next) => {
-    console.log("A", req.session.loggedIn)
+    // console.log("A", req.session.loggedIn)
     if (req.session.loggedIn) {
         next();
     } else {
@@ -54,16 +54,23 @@ router.get('/seed', (req, res) => {
 
 
 //student home
-router.get('/', async (req, res) => {
-    const apps = await App.find({})
-    res.render('student/student_home.ejs', { apps });
-})
+router.get('/', (req, res) => {
+    // const apps = await App.find({ email: req.body.email })
+    // res.render('student/student_home.ejs', { apps });
 
+    App.find({ email: req.session.email }, (err, apps) => {
+        res.render('student/student_home.ejs', { apps });
+    })
+})
 
 //index apps
 router.get('/my_applications', async (req, res) => {
-    const apps = await App.find({})
-    res.render('student/index_apps.ejs', { apps })
+    // const apps = await App.find({ email: req.session.email })
+    // res.render('student/index_apps.ejs', { apps })
+
+    App.find({ email: req.session.email }, (err, apps) => {
+        res.render('student/index_apps.ejs', { apps })
+    })
 })
 
 //new app
@@ -76,7 +83,6 @@ router.get('/add_application', (req, res) => {
 //update app
 router.put('/:id', (req, res) => {
     const id = req.params.id;
-    console.log(id);
 
     App.findByIdAndUpdate(id, req.body, { new: true }, (err, app) => {
         res.redirect(`/student/${id}`)
@@ -85,9 +91,10 @@ router.put('/:id', (req, res) => {
 
 //create app
 router.post('/add_application', (req, res) => {
-    req.body.username = req.session.username;
+    req.body.email = req.session.email;
+
     App.create(req.body, (err, app) => {
-        res.redirect('student/student_home.ejs')
+        res.redirect('/student')
     })
 })
 

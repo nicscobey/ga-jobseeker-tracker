@@ -9,7 +9,7 @@ const methodOverride = require('method-override');
 const { Schema, model } = mongoose;
 const userSchema = new Schema(
     {
-        username: { type: String, required: true, unique: true },
+        // username: { type: String, required: true, unique: true },
         firstName: { type: String, required: true },
         lastName: { type: String, required: true },
         password: { type: String, required: true },

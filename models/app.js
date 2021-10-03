@@ -13,7 +13,7 @@ const appSchema = new Schema(
         dateApplied: { type: Date, required: true },
         status: { type: String, default: "Applied", required: true },
         notes: String,
-        username: { type: String, required: true }
+        email: { type: String, required: true }
     },
     {
         timestamps: true
