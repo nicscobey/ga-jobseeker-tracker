@@ -16,35 +16,37 @@
                             COMPANY<input name="employer" class="input text-input" type="text"
                                 value="<%=app.employer%>">
                         </label>
-                        <label class="label">
-                            DATE APPLIED<input name="dateApplied" class="input text-input" type="date"
-                                value="<%=app.dateApplied%>">
-                        </label>
-                        <label class="label">
-                            STATUS
-                            <select name="status">
-                                <option>Applied - No Response</option>
-                                <option>Applied - Under Consideration</option>
-                                <option>Interviewing</option>
-                                <option>Rejected</option>
-                            </select>
-                        </label>
-                        <label class="label">
-                            JOB DESCRIPTION
-                            <textarea name="jobDescription" id="job-description-form"
-                                class="fixed-textarea"><%=app.jobDescription%></textarea>
-                        </label>
-                        <label class="label">
-                            ADDITIONAL NOTES<textarea name="notes" id="additional-job-notes-form"
-                                class="fixed-textarea"><%=app.notes%></textarea>
-                        </label>
+                        <%const date=`${app.dateApplied.getFullYear()}-${app.dateApplied.getMonth() +
+                            1}-${app.dateApplied.getDate()}`%>
+                            <label class="label">
+                                DATE APPLIED<input name="dateApplied" class="input text-input" type="date"
+                                    value="<%=date%>">
+                            </label>
+                            <label class="label">
+                                STATUS
+                                <select name="status">
+                                    <option>Applied - No Response</option>
+                                    <option>Applied - Under Consideration</option>
+                                    <option>Interviewing</option>
+                                    <option>Rejected</option>
+                                </select>
+                            </label>
+                            <label class="label">
+                                JOB DESCRIPTION
+                                <textarea name="jobDescription" id="job-description-form"
+                                    class="fixed-textarea"><%=app.jobDescription%></textarea>
+                            </label>
+                            <label class="label">
+                                ADDITIONAL NOTES<textarea name="notes" id="additional-job-notes-form"
+                                    class="fixed-textarea"><%=app.notes%></textarea>
+                            </label>
 
-                        <div class="field">
-                            <div class="control">
-                                <input type="submit" class="fixed-size-button button is-rounded is-primary"
-                                    value="Update"></input>
+                            <div class="field">
+                                <div class="control">
+                                    <input type="submit" class="fixed-size-button button is-rounded is-primary"
+                                        value="Update"></input>
+                                </div>
                             </div>
-                        </div>
                     </div>
                 </form>
                 <a href="/student/<%=app._id%>">

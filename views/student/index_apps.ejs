@@ -38,6 +38,33 @@
                     </div>
                 </div>
                 <div class="my-list">
+                    <div class="job-card">
+                        <div class="job-card-header">
+                            <h4>
+                                <%=app.employer%>
+                            </h4>
+                            <div class="job-card-popout">
+                                <p>Review</p>
+                                <p>Update</p>
+                                <p>Mark as Rejected</p>
+                            </div>
+                            <i class="fas fa-ellipsis-v job-card-ellipse"></i>
+                            <!-- <h4 class="job-card-ellipse">...</h4> -->
+                        </div>
+
+                        <div class="job-card-bottom">
+                            <p>
+                                <%=app.title%>
+                            </p>
+                            <p>Date Applied: <%=app.dateApplied%>
+                            </p>
+                            <p>
+                                <%=app.status%>
+                            </p>
+                        </div>
+                    </div>
+
+
                     <% for (app of apps) {%>
                         <div class="app-details">
                             <div class="app-details-row app-details-top-row">
@@ -56,16 +83,65 @@
                                     <%=app.dateApplied%>
                                 </p>
                             </div>
-                            <div id="app-details-buttons" class="control flex-buttons">
+                            <div id="app-details-buttons" class="control flex-column">
                                 <a href="/student/<%=app._id%>">
-                                    <button class="button app-preview-button is-rounded is-primary is-small">Update or
+                                    <button class="button app-preview-button is-rounded is-primary is-small">Update
+                                        or
                                         Review</button>
                                 </a>
-                                <button class="button app-preview-button is-rounded is-small">Mark as Rejected</button>
+                                <% if (app.status !=="Rejected" ) { %>
+                                    <br>
+                                    <form action="/student/<%=app._id%>/rejected?_method=PUT" method="POST">
+                                        <input type="submit" class="button app-preview-button is-rounded is-small"
+                                            value="Mark as Rejected">
+                                        </input>
+                                    </form>
+                                    <%}%>
                             </div>
                             <hr>
                         </div>
                         <% } %>
+
+
+
+
+
+
+                            <!-- <% for (app of apps) {%>
+                        <div class="app-details">
+                            <div class="app-details-row app-details-top-row">
+                                <p>
+                                    <%=app.title%>
+                                </p>
+                                <p>
+                                    <%=app.status%>
+                                </p>
+                            </div>
+                            <div class="app-details-row app-details-bottom-row">
+                                <p>
+                                    <%=app.employer%>
+                                </p>
+                                <p>
+                                    <%=app.dateApplied%>
+                                </p>
+                            </div>
+                            <div id="app-details-buttons" class="control flex-column">
+                                <a href="/student/<%=app._id%>">
+                                    <button class="button app-preview-button is-rounded is-primary is-small">Update or
+                                        Review</button>
+                                </a>
+                                <% if (app.status !=="Rejected" ) { %>
+                                    <br>
+                                    <form action="/student/<%=app._id%>/rejected?_method=PUT" method="POST">
+                                        <input type="submit" class="button app-preview-button is-rounded is-small"
+                                            value="Mark as Rejected">
+                                        </input>
+                                    </form>
+                                    <%}%>
+                            </div>
+                            <hr>
+                        </div>
+                        <% } %> -->
                 </div>
             </div>
     </body>
