@@ -1,10 +1,29 @@
 console.log('hey');
 
+const popouts = document.querySelectorAll('.card-popout');
+console.log(popouts);
+
 $('.navbar-burger').on('click', () => {
     console.log('boigeh')
     $('#navbarBasicExample').toggle();
     $('.navbar-burger').toggleClass('is-active');
 })
+
+// function openAppOptions(id) {
+
+
+//     console.log(id)
+//     $(event.target).prev().toggle();
+//     $(event.target).toggleClass('color-gray');
+
+// }
+
+// $('.ellipse-container').on('click', (event) => {
+//     console.log(event.target);
+//     $(event.target).prev().toggle();
+//     $(event.target).toggleClass('color-gray');
+// })
+
 $('.navbar-home').on('click', () => {
     console.log('home')
     $('#navbarBasicExample').css('display', 'none');
@@ -37,4 +56,20 @@ restaurantPageBottomLinks.forEach((link, index) => {
         $(link).toggleClass('is-active');
         $(restaurantPageBottomSections[index]).toggleClass('is-hidden');
     })
+})
+
+// open/close job app options on student index page
+$(document).on('click', (event) => {
+    if ($(event.target).hasClass('ellipse-container')) {
+        $(event.target).prev().toggle();
+        $(event.target).toggleClass('color-gray');
+    }
+    if ($(event.target).hasClass('fa-ellipsis-v')) {
+        $(event.target).parent().prev().toggle();
+        $(event.target).parent().toggleClass('color-gray');
+    }
+    if ($(event.target).attr('d') == "M96 184c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zM24 80c0 39.8 32.2 72 72 72s72-32.2 72-72S135.8 8 96 8 24 40.2 24 80zm0 352c0 39.8 32.2 72 72 72s72-32.2 72-72-32.2-72-72-72-72 32.2-72 72z") {
+        $(event.target).parent().parent().prev().toggle();
+        $(event.target).parent().parent().toggleClass('color-gray');
+    }
 })

@@ -38,69 +38,95 @@
                     </div>
                 </div>
                 <div class="my-list">
-                    <div class="job-card">
-                        <div class="job-card-header">
-                            <h4>
-                                <%=app.employer%>
-                            </h4>
-                            <div class="job-card-popout">
-                                <p>Review</p>
-                                <p>Update</p>
-                                <p>Mark as Rejected</p>
-                            </div>
-                            <i class="fas fa-ellipsis-v job-card-ellipse"></i>
-                            <!-- <h4 class="job-card-ellipse">...</h4> -->
-                        </div>
-
-                        <div class="job-card-bottom">
-                            <p>
-                                <%=app.title%>
-                            </p>
-                            <p>Date Applied: <%=app.dateApplied%>
-                            </p>
-                            <p>
-                                <%=app.status%>
-                            </p>
-                        </div>
-                    </div>
-
-
                     <% for (app of apps) {%>
-                        <div class="app-details">
-                            <div class="app-details-row app-details-top-row">
-                                <p>
-                                    <%=app.title%>
-                                </p>
-                                <p>
-                                    <%=app.status%>
-                                </p>
-                            </div>
-                            <div class="app-details-row app-details-bottom-row">
-                                <p>
+
+                        <div class="job-card">
+                            <div class="job-card-header">
+                                <h4 class="job-card-employer">
                                     <%=app.employer%>
-                                </p>
-                                <p>
-                                    <%=app.dateApplied%>
-                                </p>
+                                </h4>
+                                <div class="card-popout <% if (app.status !== "Rejected" ) {%>
+                                    job-card-popout<%}%>
+                                        <% if (app.status==="Rejected" ) {%>
+                                            job-card-popout-rejected<%}%>" id="popout-<%=app._id%>">
+                                                    <p>Review</p>
+                                                    <p>Update</p>
+                                                    <% if (app.status !=="Rejected" ) { %>
+                                                        <form action="/student/<%=app._id%>/rejected?_method=PUT"
+                                                            method="POST">
+                                                            <input type="submit" class="rejected-button"
+                                                                value="Mark as Rejected">
+                                                            </input>
+                                                        </form>
+                                                        <%}%>
+                                </div>
+                                <div id="ellipse-container-<%=app._id%>" class="ellipse-container">
+                                    <i class="fas fa-ellipsis-v job-card-ellipse"></i>
+                                </div>
                             </div>
-                            <div id="app-details-buttons" class="control flex-column">
-                                <a href="/student/<%=app._id%>">
-                                    <button class="button app-preview-button is-rounded is-primary is-small">Update
-                                        or
-                                        Review</button>
-                                </a>
-                                <% if (app.status !=="Rejected" ) { %>
-                                    <br>
-                                    <form action="/student/<%=app._id%>/rejected?_method=PUT" method="POST">
-                                        <input type="submit" class="button app-preview-button is-rounded is-small"
-                                            value="Mark as Rejected">
-                                        </input>
-                                    </form>
-                                    <%}%>
-                            </div>
-                            <hr>
+                            <!--Array of Months-->
+                            <% const months={ 0: "January" , 1: "February" , 2: "March" , 3: "April" , 4: "May" ,
+                                5: "June" , 6: "July" , 7: "August" , 8: "September" , 9: "October" , 10: "November" ,
+                                11: "December" } %>
+                                <div class="job-card-bottom">
+                                    <p>
+                                        <b>Job Title: </b>
+                                        <%=app.title%>
+                                    </p>
+                                    <p><b>Date Applied:</b>
+                                        <%const month=app.dateApplied.getMonth()%>
+                                            <%const date=`${months[app.dateApplied.getMonth()]}
+                                                ${app.dateApplied.getDate()}, ${app.dateApplied.getFullYear()}`%>
+                                                <%=date%>
+                                    </p>
+                                    <p>
+                                        <b>Status:</b>
+                                        <%=app.status%>
+                                    </p>
+                                </div>
                         </div>
-                        <% } %>
+                        <%}%>
+
+
+
+                            <!-- <% for (app of apps) {%>
+                                <div class="app-details">
+                                    <div class="app-details-row app-details-top-row">
+                                        <p>
+                                            <%=app.title%>
+                                        </p>
+                                        <p>
+                                            <%=app.status%>
+                                        </p>
+                                    </div>
+                                    <div class="app-details-row app-details-bottom-row">
+                                        <p>
+                                            <%=app.employer%>
+                                        </p>
+                                        <p>
+                                            <%=app.dateApplied%>
+                                        </p>
+                                    </div>
+                                    <div id="app-details-buttons" class="control flex-column">
+                                        <a href="/student/<%=app._id%>">
+                                            <button
+                                                class="button app-preview-button is-rounded is-primary is-small">Update
+                                                or
+                                                Review</button>
+                                        </a>
+                                        <% if (app.status !=="Rejected" ) { %>
+                                            <br>
+                                            <form action="/student/<%=app._id%>/rejected?_method=PUT" method="POST">
+                                                <input type="submit"
+                                                    class="button app-preview-button is-rounded is-small"
+                                                    value="Mark as Rejected">
+                                                </input>
+                                            </form>
+                                            <%}%>
+                                    </div>
+                                    <hr>
+                                </div>
+                                <% } %> -->
 
 
 
