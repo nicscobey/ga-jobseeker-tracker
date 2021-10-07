@@ -16,7 +16,7 @@ const router = express.Router();
 
 // index log in
 router.get('/login', (req, res) => {
-    res.render('user/login.ejs');
+    res.render('user/login.ejs', {error: false});
 })
 
 //post log in
@@ -27,7 +27,8 @@ router.post('/login', (req, res) => {
     //check if user exists
     User.findOne({ email }, (err, user) => {
         if (!user) {
-            res.send("User does not exist");
+            // res.send("User does not exist");
+            res.render('user/login.ejs', {error: true});
         }
         else {
             // check if password matches
@@ -42,7 +43,8 @@ router.post('/login', (req, res) => {
                 res.redirect('/student')
             }
             else {
-                res.send("Wrong password!");
+                // res.send("Wrong password!");
+                res.render('user/login.ejs', {error: true});
             }
         }
     })

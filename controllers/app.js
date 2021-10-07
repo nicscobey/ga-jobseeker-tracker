@@ -76,6 +76,49 @@ router.get('/my_applications', async (req, res) => {
     })
 })
 
+//filter index apps
+router.get('/my_applications/:includeRejected/:sortBy/:searchTerm', async (req, res) => {
+    const includeRejected = req.params.includeRejected === "false" ? false : true;
+    // if (req.params.includeRejected === "false") includeRejected=false : includeRejected=true;
+
+    const sortBy = req.params.sortBy;
+    const searchTerm = req.params.searchTerm;
+
+
+    //includeRejected is a string that needs to be converted to BOOLEAN
+
+
+
+    console.log(includeRejected, sortBy, searchTerm);
+
+    App.find({email: req.session.email}, (err, apps) => {
+        
+        //filter out rejected apps
+        if (!includeRejected) {
+            for (let i = 0; i < apps.length; i++) {
+                if (apps[i].status === "Rejected") {
+                    apps.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+
+        //filter by search term
+        if (searchTerm !== "null") {
+            for (let i = 0; i < apps.length; i++) {
+                if (!(apps[i].title.includes(searchTerm) || apps[i].email.includes(searchTerm) || apps[i].jobDescription.includes(searchTerm) || apps[i].notes.includes(searchTerm) || apps[i].status.includes(searchTerm))) {
+                    apps.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+        
+
+        console.log('yummy')
+        res.render('student/index_apps.ejs', { apps })
+    })
+})
+
 //new app
 router.get('/add_application', (req, res) => {
     res.render('student/new_app.ejs')

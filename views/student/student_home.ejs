@@ -11,21 +11,38 @@
                     <a href="">
                         <button class="fixed-size-button button is-rounded is-primary">Complete Weekly Check-In</button>
                     </a>
-                    <br>
                     <a href="/student/add_application">
                         <button class="fixed-size-button button is-rounded is-primary">Record New Application</button>
                     </a>
-                    <br>
                     <a href="/student/my_applications">
                         <button class="fixed-size-button button is-rounded is-primary">View My Applications</button>
                     </a>
                 </div>
-                <div class="home-page-flex-data">
+                <div class="home-page-flex-data max-width">
                     <div class="home-page-app-data-box">
                         <h5 class="subtitle is-5">Applications</h5>
                         <div class="flex-column">
                             <p>This week</p>
-                            <p>##</p>
+                            <p>
+                                <%
+                                    let weeklyApps = 0;
+                                    let today= new Date();
+                                    let newDate = Date.now();
+                                    let offset = today.getTimezoneOffset() * 60;
+                                    console.log('offset', offset);
+                                    console.log(today);
+                                    console.log((today - offset));
+                                    console.log(newDate);
+                                    console.log(newDate - offset)
+
+                                    let blurb = today - offset;
+                                    let blub = newDate - offset;
+                                    console.log(new Date(newDate));
+                                    console.log(new Date(blub));
+                                    console.log(new Date(blurb));
+
+                                %>
+                            </p>
                         </div>
                         <div class="flex-column">
                             <p>Total</p>

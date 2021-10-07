@@ -19,6 +19,10 @@
     margin-bottom: 80px;
 }
 
+.max-width {
+    max-width: 800px;
+}
+
 .button.is-primary {
     background-color: #017990;
     /* background-color: #97049F; */
@@ -190,7 +194,6 @@ textarea:focus-visible {
 #alternate-login-options, .home-page-flex-data {
     display: flex;
     justify-content: space-around;
-    max-width: 100vw;
 }
 
 .form-set-width, .my-list {
@@ -202,6 +205,10 @@ textarea:focus-visible {
     display: flex;
     justify-content: space-around;
     width: 100vw;
+}
+
+.alert {
+    color: red;
 }
 
 .flex-buttons {
@@ -272,9 +279,10 @@ textarea {
     justify-content: space-between;
     border-radius: 10px 10px 0 0;
     font-size: 16px;
+    align-items: center;
 }
 
-.job-card-employer {
+.title.job-card-employer {
     color: white;
     margin: 5px 5px 5px 10px;
     font-weight: bold;
@@ -307,6 +315,8 @@ p {
     top: -54px;
 }
 
+
+
 .ellipse-container {
     z-index: 10;
     color: white;
@@ -314,6 +324,14 @@ p {
     /* background: tomato; */
 }
 
+.card-popout-link {
+    color: #4a4a4a;
+}
+
+.card-popout-link:hover {
+    color: #017990;
+    /* font-weight: bold; */
+}
 .job-card-ellipse {
 
     /* padding: 5px 10px 5px 5px; */

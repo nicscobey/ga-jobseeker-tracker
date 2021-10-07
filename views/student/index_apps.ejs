@@ -8,11 +8,11 @@
         <%- include('../partials/navbar.ejs') %>
             <div id="search-applications-page" class="in-app-page">
                 <h3 class="title is-3">My Applications</h3>
-                <div class="control flex-column">
+                <form class="control flex-column" id="filter-index-form">
                     <div class="field">
                         <p class="control has-icons-left">
                             <input type="search" class="yellow-outline-button button fixed-size-button is-rounded"
-                                placeholder="Search for an App...">
+                                placeholder="Search for an App..." id="filter-index-term">
                             <span class="icon is-small is-left">
                                 <i class="fas fa-search"></i>
                             </span>
@@ -20,37 +20,39 @@
                     </div>
                     <div>
                         <label for=include-rejected-apps>Include Rejected Applications</label>
-                        <input type="checkbox" value="include-rejected-apps" name="include-rejected-apps">
+                        <input type="checkbox" value="include-rejected-apps" name="include-rejected-apps" id="include-rejected-apps">
                     </div>
                     <button type="submit"
                         class="fixed-size-button button is-rounded is-primary yellow-solid-button">Search</button>
-                </div>
+                </form>
                 <hr>
                 <div id="sort-my-apps" class="flex-center">
                     <p>Sort results by:&nbsp;</p>
                     <div class="select is-rounded is-small">
-                        <select>
-                            <option>Job Title</option>
-                            <option>Company</option>
-                            <option>Date Applied</option>
-                            <option>Status</option>
+                        <select id="sort-my-apps">
+                            <option value="Date Applied">Date Applied</option>
+                            <option value="Job Title">Job Title</option>
+                            <option value="Company">Company</option>
+                            <option value="Status">Status</option>
                         </select>
                     </div>
                 </div>
                 <div class="my-list">
                     <% for (app of apps) {%>
-
                         <div class="job-card">
                             <div class="job-card-header">
-                                <h4 class="job-card-employer">
+                                <a href="/student/<%=app._id%>" class="title is-6 job-card-employer">
                                     <%=app.employer%>
-                                </h4>
+                                </a>
                                 <div class="card-popout <% if (app.status !== "Rejected" ) {%>
                                     job-card-popout<%}%>
                                         <% if (app.status==="Rejected" ) {%>
                                             job-card-popout-rejected<%}%>" id="popout-<%=app._id%>">
-                                                    <p>Review</p>
-                                                    <p>Update</p>
+                                                    <p><a class="card-popout-link" href="/student/<%=app._id%>">Review</a></p>
+                                                    <p>
+                                                        <a class="card-popout-link" href="/student/<%=app._id%>/edit">Update</a>
+                                                    </p>
+                                                    
                                                     <% if (app.status !=="Rejected" ) { %>
                                                         <form action="/student/<%=app._id%>/rejected?_method=PUT"
                                                             method="POST">
