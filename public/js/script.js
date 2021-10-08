@@ -74,6 +74,14 @@ $(document).on('click', (event) => {
         $(event.target).parent().parent().prev().toggle();
         $(event.target).parent().parent().toggleClass('card-popout-link');
     }
+    // if (!($(event.target).hasClass('card-popout'))) {
+    //     console.log('hi not a popout')
+    //     const cardPopouts = document.querySelectorAll('.card-popout');
+    //     for (let i = 0; i < cardPopouts.length; i++) {
+    //         console.log('yello')
+    //         $(cardPopouts[i]).css('display', 'none');
+    //     }
+    // }
 })
 
 

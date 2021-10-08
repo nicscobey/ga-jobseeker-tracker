@@ -76,6 +76,8 @@
                                         <%=app.title%>
                                     </p>
                                     <p><b>Date Applied:</b>
+                                        <%console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')%>
+                                        <%console.log(app.dateApplied);%>
                                         <%const month=app.dateApplied.getMonth()%>
                                             <%const date=`${months[app.dateApplied.getMonth()]}
                                                 ${app.dateApplied.getDate()}, ${app.dateApplied.getFullYear()}`%>

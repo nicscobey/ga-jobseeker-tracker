@@ -30,9 +30,10 @@
                                     let newDate = Date.now();
                                     let offset = today.getTimezoneOffset() * 60;
                                     console.log('offset', offset);
-                                    console.log(today);
+                                    console.log('today', today);
+                                    console.log('newDate', newDate);
+
                                     console.log((today - offset));
-                                    console.log(newDate);
                                     console.log(newDate - offset)
 
                                     let blurb = today - offset;
@@ -40,6 +41,9 @@
                                     console.log(new Date(newDate));
                                     console.log(new Date(blub));
                                     console.log(new Date(blurb));
+                                    //the following line shows time in local time
+                                    console.log(new Date(blurb).toString());
+                                    console.log(new Date(blurb).toDateString());
 
                                 %>
                             </p>

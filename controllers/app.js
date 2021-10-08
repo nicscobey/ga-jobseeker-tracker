@@ -79,20 +79,15 @@ router.get('/my_applications', async (req, res) => {
 //filter index apps
 router.get('/my_applications/:includeRejected/:sortBy/:searchTerm', async (req, res) => {
     const includeRejected = req.params.includeRejected === "false" ? false : true;
-    // if (req.params.includeRejected === "false") includeRejected=false : includeRejected=true;
 
     const sortBy = req.params.sortBy;
-    const searchTerm = req.params.searchTerm;
-
-
-    //includeRejected is a string that needs to be converted to BOOLEAN
-
-
+    const searchTerm = req.params.searchTerm.toLowerCase();
 
     console.log(includeRejected, sortBy, searchTerm);
 
     App.find({email: req.session.email}, (err, apps) => {
-        
+        const allApps=apps;
+
         //filter out rejected apps
         if (!includeRejected) {
             for (let i = 0; i < apps.length; i++) {
@@ -106,13 +101,17 @@ router.get('/my_applications/:includeRejected/:sortBy/:searchTerm', async (req, 
         //filter by search term
         if (searchTerm !== "null") {
             for (let i = 0; i < apps.length; i++) {
-                if (!(apps[i].title.includes(searchTerm) || apps[i].email.includes(searchTerm) || apps[i].jobDescription.includes(searchTerm) || apps[i].notes.includes(searchTerm) || apps[i].status.includes(searchTerm))) {
+                // console.log(apps[i].includes(searchTerm));
+
+                if (!(apps[i].title.toLowerCase().includes(searchTerm) || apps[i].employer.toLowerCase().includes(searchTerm) || apps[i].jobDescription.toLowerCase().includes(searchTerm) || apps[i].notes.toLowerCase().includes(searchTerm) || apps[i].status.toLowerCase().includes(searchTerm))) {
                     apps.splice(i, 1);
                     i--;
                 }
             }
         }
         
+
+//ADD BUTTON FOR SHOW ALL APPS
 
         console.log('yummy')
         res.render('student/index_apps.ejs', { apps })
@@ -147,7 +146,12 @@ router.put('/:id/rejected', (req, res) => {
 //create app
 router.post('/add_application', (req, res) => {
     req.body.email = req.session.email;
-    console.log(req.body.dateApplied);
+
+    let myDate = new Date();
+    let offset = myDate.getTimezoneOffset() * 60;
+    let dateApplied = myDate + offset;
+
+    req.body.dateApplied = new Date(dateApplied);
 
     App.create(req.body, (err, app) => {
         res.redirect('/student')
