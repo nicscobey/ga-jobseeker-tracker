@@ -164,6 +164,6 @@ app.get('/coach/my_classes/:classID', (req, res) => {
     res.render('coach/coach_show_class.ejs');
 })
 
-app.listen(port, (req, res) => {
+app.listen(process.env.PORT, (req, res) => {
     console.log('job tracker at ', port)
 })
