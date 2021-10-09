@@ -9,8 +9,8 @@
 
         <%- include('../partials/navbar.ejs') %>
             <div id="application-details-page" class="in-app-page">
-                <div class="application-details-page-buttons">
-                    <a href="/student/my_applications">
+                <!-- <div class="application-details-page-buttons">
+                    <a href="/student/my_applications/false/dateApplied/null">
                         <span class="icon is-large">
                             <i class="fas fa-lg fa-arrow-left"></i>
                         </span>
@@ -19,11 +19,11 @@
                             <i class="fas fa-lg fa-edit"></i>
                         </span>
                     </a>
-                </div>
+                </div> -->
                 <div class="application-details-page-details margin-20px">
-                    <h4 class="subtitle is-4 no-margin center-text">
+                    <h3 class="subtitle is-3 no-margin center-text">
                         <%=app.title%>
-                    </h4>
+                    </h3>
                     <h5 class="subtitle is-5 no-margin center-text">
                         <%=app.employer%>
                     </h5>
@@ -46,6 +46,9 @@
                     <p>
                         <%=app.notes%>
                     </p>
+                    <a href="/student/<%=app._id%>/edit" class="flex-center">
+                        <button class="fixed-size-button button is-rounded is-primary yellow-solid-button">Update</button>
+                    </a>
                 </div>
             </div>
     </body>

@@ -58,9 +58,6 @@ router.get('/seed', (req, res) => {
 
 //student home
 router.get('/', (req, res) => {
-    // const apps = await App.find({ email: req.body.email })
-    // res.render('student/student_home.ejs', { apps });
-
     App.find({ email: req.session.email }, (err, apps) => {
         res.render('student/student_home.ejs', { apps });
     })
@@ -72,8 +69,18 @@ router.get('/my_applications', async (req, res) => {
     // res.render('student/index_apps.ejs', { apps })
 
     App.find({ email: req.session.email }, (err, apps) => {
-        res.render('student/index_apps.ejs', { apps })
+        
+        //Default: sorts apps by application date
+        apps.sort(function (a, b) {
+            return a.dateApplied - b.dateApplied;
+        })
+        
+        apps.reverse();
+        // res.render('student/index_apps.ejs', { apps, includeRejected, sortBy, searchTerm })
+        res.render('student/index_apps.ejs', { apps, includeRejected: false, sortBy: "dateApplied", searchTerm: "" })
     })
+
+
 })
 
 //filter index apps
@@ -101,20 +108,57 @@ router.get('/my_applications/:includeRejected/:sortBy/:searchTerm', async (req, 
         //filter by search term
         if (searchTerm !== "null") {
             for (let i = 0; i < apps.length; i++) {
-                // console.log(apps[i].includes(searchTerm));
-
+                //checks if the search term matches job title, job description, employer, and anything from notes or status
                 if (!(apps[i].title.toLowerCase().includes(searchTerm) || apps[i].employer.toLowerCase().includes(searchTerm) || apps[i].jobDescription.toLowerCase().includes(searchTerm) || apps[i].notes.toLowerCase().includes(searchTerm) || apps[i].status.toLowerCase().includes(searchTerm))) {
                     apps.splice(i, 1);
                     i--;
                 }
             }
         }
+
+        //sort by Date Applied
+        if (sortBy === "Job Title") {
+            apps.sort(function (a, b) {
+                let lowercaseA = a.title.toLowerCase();
+                let lowercaseB = b.title.toLowerCase();
+
+                if (lowercaseA < lowercaseB) return -1;
+                if (lowercaseA > lowercaseB) return 1;
+                return 0;
+            })
+        }
+        else if (sortBy === "Company") {
+            apps.sort(function (a, b) {
+                let lowercaseA = a.employer.toLowerCase();
+                let lowercaseB = b.employer.toLowerCase();
+
+                if (lowercaseA < lowercaseB) return -1;
+                if (lowercaseA > lowercaseB) return 1;
+                return 0;
+            })
+        }
+        else if (sortBy === "Status") {
+            apps.sort(function (a, b) {
+                let lowercaseA = a.status.toLowerCase();
+                let lowercaseB = b.status.toLowerCase();
+
+                if (lowercaseA < lowercaseB) return -1;
+                if (lowercaseA > lowercaseB) return 1;
+                return 0;
+            })
+        }
+        //default: sort by dateApplied
+        else {
+        // if (sortBy === "Date Applied") {
+            apps.sort(function (a, b) {
+                return a.dateApplied - b.dateApplied;
+            })
+            apps.reverse();
+        }
+
+        //ADD BUTTON FOR SHOW ALL APPS
         
-
-//ADD BUTTON FOR SHOW ALL APPS
-
-        console.log('yummy')
-        res.render('student/index_apps.ejs', { apps })
+        res.render('student/index_apps.ejs', { apps, includeRejected, sortBy, searchTerm })
     })
 })
 
@@ -146,10 +190,12 @@ router.put('/:id/rejected', (req, res) => {
 //create app
 router.post('/add_application', (req, res) => {
     req.body.email = req.session.email;
+    let appDate = new Date(req.body.appDate);
+    let appMS = appDate.getTime();
 
     let myDate = new Date();
-    let offset = myDate.getTimezoneOffset() * 60;
-    let dateApplied = myDate + offset;
+    let offsetMS = myDate.getTimezoneOffset() * 60 * 1000;
+    let dateApplied = new Date(appMS + offsetMS);
 
     req.body.dateApplied = new Date(dateApplied);
 

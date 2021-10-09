@@ -3,7 +3,6 @@
 console.log('hey');
 
 const popouts = document.querySelectorAll('.card-popout');
-console.log(popouts);
 
 $('.navbar-burger').on('click', () => {
     console.log('boigeh')
@@ -101,14 +100,37 @@ $('#filter-index-form').on('submit', (event)=> {
     // event.preventDefault();
     
     const includeRejected = $('#include-rejected-apps').prop('checked');
-    // const sortBy = ;
+    const sortBy = $('#sort-my-apps').val();
     let searchTerm = $('#filter-index-term').val();
 
     if (searchTerm === "") searchTerm="null";
 
     console.log('hey nico man')
     console.log(includeRejected);
-    // console.log(sortBy);
+    console.log(sortBy);
     console.log(searchTerm);
-    $('#filter-index-form').attr('action', `/student/my_applications/${includeRejected}/sortBy/${searchTerm}`)
+    $('#filter-index-form').attr('action', `/student/my_applications/${includeRejected}/${sortBy}/${searchTerm}`)
+})
+
+// $('#sort-my-apps').on('change', (event)=> {
+//     let jobCards = document.querySelectorAll('.job-card');
+//     console.log(jobCards);
+//     console.log(event.target);
+//     console.log($(event.target).val());
+//     console.log(event.target.tagName);
+
+
+
+//     event.target.tagName = "input";
+//     $(event.target).attr('action', '')
+
+// })
+
+$('#sort-my-apps').on('change', () => {
+    if ($('#sort-my-apps').val() === "") {
+        $('#sort-my-apps').css('color', '#cbcbcb')
+    }
+    else {
+        $('#sort-my-apps').css('color', '#363636')
+    }
 })

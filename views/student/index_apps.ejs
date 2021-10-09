@@ -8,171 +8,123 @@
         <%- include('../partials/navbar.ejs') %>
             <div id="search-applications-page" class="in-app-page">
                 <h3 class="title is-3">My Applications</h3>
+                <!-- <div class="flex-center">
+                    <a href="">
+                        <button type="submit"
+                        class="fixed-size-button button is-rounded is-primary yellow-solid-button">Enter a New Application</button>
+                    </a>
+                </div>
+                
+                <hr> -->
                 <form class="control flex-column" id="filter-index-form">
-                    <div class="field">
-                        <p class="control has-icons-left">
-                            <input type="search" class="yellow-outline-button button fixed-size-button is-rounded"
-                                placeholder="Search for an App..." id="filter-index-term">
-                            <span class="icon is-small is-left">
+                    <div class="field flex-center">
+                        <div class="control has-icons-left search-field ">
+                            <input type="search" class="yellow-outline-button button fixed-size-button search-field-left"
+                                placeholder="Search for an app..." id="filter-index-term">
+                            <span class="icon is-small is-left search-icon">
                                 <i class="fas fa-search"></i>
                             </span>
-                        </p>
+                        </div>
+                        <!-- <div class="field select is-rounded is-small"> -->
+                        <div class="field select">
+                            <select id="sort-my-apps" class="search-field search-field-right yellow-outline-button button">
+                                <option class="placeholder-color" value="" disabled selected>Sort By...</option>
+                                <option value="Date Applied">Date Applied</option>
+                                <option value="Job Title">Job Title</option>
+                                <option value="Company" type="submit" action="">Company</option>
+                                <option value="Status">Status</option>
+                            </select>
+                        </div>
                     </div>
                     <div>
                         <label for=include-rejected-apps>Include Rejected Applications</label>
-                        <input type="checkbox" value="include-rejected-apps" name="include-rejected-apps" id="include-rejected-apps">
+                        <% if (includeRejected) {%>
+                            <input type="checkbox" value="include-rejected-apps" name="include-rejected-apps" id="include-rejected-apps" checked>
+                            <%}%>
+                        <%if (!includeRejected) {%>
+                            <input type="checkbox" value="include-rejected-apps" name="include-rejected-apps" id="include-rejected-apps">
+                                <%}%>
                     </div>
+                    <!-- <div class="flex-center">
+                        <p>Sort results by:&nbsp;</p>
+                        <div class="select is-rounded is-small">
+                                <select id="sort-my-apps">
+                                    <option value="">Sort By...</option>
+                                    <option value="Date Applied">Date Applied</option>
+                                    <option value="Job Title">Job Title</option>
+                                    <option value="Company" type="submit" action="">Company</option>
+                                    <option value="Status">Status</option>
+                                </select>
+                        </div>
+                    </div> -->
                     <button type="submit"
                         class="fixed-size-button button is-rounded is-primary yellow-solid-button">Search</button>
                 </form>
-                <hr>
-                <div id="sort-my-apps" class="flex-center">
-                    <p>Sort results by:&nbsp;</p>
-                    <div class="select is-rounded is-small">
-                        <select id="sort-my-apps">
-                            <option value="Date Applied">Date Applied</option>
-                            <option value="Job Title">Job Title</option>
-                            <option value="Company">Company</option>
-                            <option value="Status">Status</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="my-list">
-                    <% for (app of apps) {%>
-                        <div class="job-card">
-                            <div class="job-card-header">
-                                <a href="/student/<%=app._id%>" class="title is-6 job-card-employer">
-                                    <%=app.employer%>
-                                </a>
-                                <div class="card-popout <% if (app.status !== "Rejected" ) {%>
-                                    job-card-popout<%}%>
-                                        <% if (app.status==="Rejected" ) {%>
-                                            job-card-popout-rejected<%}%>" id="popout-<%=app._id%>">
-                                                    <p><a class="card-popout-link" href="/student/<%=app._id%>">Review</a></p>
-                                                    <p>
-                                                        <a class="card-popout-link" href="/student/<%=app._id%>/edit">Update</a>
-                                                    </p>
-                                                    
-                                                    <% if (app.status !=="Rejected" ) { %>
-                                                        <form action="/student/<%=app._id%>/rejected?_method=PUT"
-                                                            method="POST">
-                                                            <input type="submit" class="rejected-button"
-                                                                value="Mark as Rejected">
-                                                            </input>
-                                                        </form>
-                                                        <%}%>
+                <article>
+                    
+                    <div class="my-list">
+                        
+                        <p class="flex-center">
+                            Showing&nbsp;<b><%=apps.length%></b>&nbsp;result<%if (apps.length !== 1) {%>s<%}%><% if (searchTerm !== "" && searchTerm !== "null") {%>&nbsp;for&nbsp;<b><%=searchTerm%></b><%}%>&nbsp;&nbsp;&nbsp;
+                            <a href="/student/my_applications/false/dateApplied/null">
+                                <button type="submit"
+                                class="is-small button is-rounded yellow-outline-button">Show all active applications</button>
+                            </a>
+                        </p>
+                        
+                        <% for (app of apps) {%>
+                            <div class="job-card">
+                                <div class="job-card-header">
+                                    <a href="/student/<%=app._id%>" class="title is-6 job-card-employer">
+                                        <%=app.employer%>
+                                    </a>
+                                    <div class="card-popout <% if (app.status !== "Rejected" ) {%>
+                                        job-card-popout<%}%>
+                                            <% if (app.status==="Rejected" ) {%>
+                                                job-card-popout-rejected<%}%>" id="popout-<%=app._id%>">
+                                                        <p><a class="card-popout-link" href="/student/<%=app._id%>">Review</a></p>
+                                                        <p>
+                                                            <a class="card-popout-link" href="/student/<%=app._id%>/edit">Update</a>
+                                                        </p>
+                                                        
+                                                        <% if (app.status !=="Rejected" ) { %>
+                                                            <form action="/student/<%=app._id%>/rejected?_method=PUT"
+                                                                method="POST">
+                                                                <input type="submit" class="rejected-button card-popout-link"
+                                                                    value="Mark as Rejected">
+                                                                </input>
+                                                            </form>
+                                                            <%}%>
+                                    </div>
+                                    <div id="ellipse-container-<%=app._id%>" class="ellipse-container">
+                                        <i class="fas fa-ellipsis-v job-card-ellipse"></i>
+                                    </div>
                                 </div>
-                                <div id="ellipse-container-<%=app._id%>" class="ellipse-container">
-                                    <i class="fas fa-ellipsis-v job-card-ellipse"></i>
-                                </div>
-                            </div>
-                            <!--Array of Months-->
-                            <% const months={ 0: "January" , 1: "February" , 2: "March" , 3: "April" , 4: "May" ,
-                                5: "June" , 6: "July" , 7: "August" , 8: "September" , 9: "October" , 10: "November" ,
-                                11: "December" } %>
-                                <div class="job-card-bottom">
-                                    <p>
-                                        <b>Job Title: </b>
-                                        <%=app.title%>
-                                    </p>
-                                    <p><b>Date Applied:</b>
-                                        <%console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')%>
-                                        <%console.log(app.dateApplied);%>
-                                        <%const month=app.dateApplied.getMonth()%>
-                                            <%const date=`${months[app.dateApplied.getMonth()]}
-                                                ${app.dateApplied.getDate()}, ${app.dateApplied.getFullYear()}`%>
-                                                <%=date%>
-                                    </p>
-                                    <p>
-                                        <b>Status:</b>
-                                        <%=app.status%>
-                                    </p>
-                                </div>
-                        </div>
-                        <%}%>
-
-
-
-                            <!-- <% for (app of apps) {%>
-                                <div class="app-details">
-                                    <div class="app-details-row app-details-top-row">
+                                <!--Array of Months-->
+                                <% const months={ 0: "January" , 1: "February" , 2: "March" , 3: "April" , 4: "May" ,
+                                    5: "June" , 6: "July" , 7: "August" , 8: "September" , 9: "October" , 10: "November" ,
+                                    11: "December" } %>
+                                    <div class="job-card-bottom">
                                         <p>
+                                            <b>Job Title: </b>
                                             <%=app.title%>
                                         </p>
+                                        <p><b>Date Applied:</b>
+                                            <%const month=app.dateApplied.getMonth()%>
+                                                <%const date=`${months[app.dateApplied.getMonth()]}
+                                                    ${app.dateApplied.getDate()}, ${app.dateApplied.getFullYear()}`%>
+                                                    <%=date%>
+                                        </p>
                                         <p>
+                                            <b>Status:</b>
                                             <%=app.status%>
                                         </p>
                                     </div>
-                                    <div class="app-details-row app-details-bottom-row">
-                                        <p>
-                                            <%=app.employer%>
-                                        </p>
-                                        <p>
-                                            <%=app.dateApplied%>
-                                        </p>
-                                    </div>
-                                    <div id="app-details-buttons" class="control flex-column">
-                                        <a href="/student/<%=app._id%>">
-                                            <button
-                                                class="button app-preview-button is-rounded is-primary is-small">Update
-                                                or
-                                                Review</button>
-                                        </a>
-                                        <% if (app.status !=="Rejected" ) { %>
-                                            <br>
-                                            <form action="/student/<%=app._id%>/rejected?_method=PUT" method="POST">
-                                                <input type="submit"
-                                                    class="button app-preview-button is-rounded is-small"
-                                                    value="Mark as Rejected">
-                                                </input>
-                                            </form>
-                                            <%}%>
-                                    </div>
-                                    <hr>
-                                </div>
-                                <% } %> -->
-
-
-
-
-
-
-                            <!-- <% for (app of apps) {%>
-                        <div class="app-details">
-                            <div class="app-details-row app-details-top-row">
-                                <p>
-                                    <%=app.title%>
-                                </p>
-                                <p>
-                                    <%=app.status%>
-                                </p>
                             </div>
-                            <div class="app-details-row app-details-bottom-row">
-                                <p>
-                                    <%=app.employer%>
-                                </p>
-                                <p>
-                                    <%=app.dateApplied%>
-                                </p>
-                            </div>
-                            <div id="app-details-buttons" class="control flex-column">
-                                <a href="/student/<%=app._id%>">
-                                    <button class="button app-preview-button is-rounded is-primary is-small">Update or
-                                        Review</button>
-                                </a>
-                                <% if (app.status !=="Rejected" ) { %>
-                                    <br>
-                                    <form action="/student/<%=app._id%>/rejected?_method=PUT" method="POST">
-                                        <input type="submit" class="button app-preview-button is-rounded is-small"
-                                            value="Mark as Rejected">
-                                        </input>
-                                    </form>
-                                    <%}%>
-                            </div>
-                            <hr>
-                        </div>
-                        <% } %> -->
-                </div>
+                            <%}%>
+                    </div>
+                </article>
+                
             </div>
     </body>
 

@@ -9,62 +9,57 @@
                 <h3 class="title is-3">My Job Tracker</h3>
                 <div class="control flex-column">
                     <a href="">
-                        <button class="fixed-size-button button is-rounded is-primary">Complete Weekly Check-In</button>
+                        <button class="fixed-size-button button is-rounded is-primary yellow-solid-button">Complete Weekly Check-In</button>
                     </a>
                     <a href="/student/add_application">
-                        <button class="fixed-size-button button is-rounded is-primary">Record New Application</button>
+                        <button class="fixed-size-button button is-rounded is-primary yellow-solid-button">Record New Application</button>
                     </a>
-                    <a href="/student/my_applications">
-                        <button class="fixed-size-button button is-rounded is-primary">View My Applications</button>
+                    <a href="/student/my_applications/false/dateApplied/null">
+                        <button class="fixed-size-button button is-rounded is-primary yellow-solid-button">View My Applications</button>
                     </a>
                 </div>
                 <div class="home-page-flex-data max-width">
-                    <div class="home-page-app-data-box">
-                        <h5 class="subtitle is-5">Applications</h5>
-                        <div class="flex-column">
-                            <p>This week</p>
-                            <p>
-                                <%
-                                    let weeklyApps = 0;
-                                    let today= new Date();
-                                    let newDate = Date.now();
-                                    let offset = today.getTimezoneOffset() * 60;
-                                    console.log('offset', offset);
-                                    console.log('today', today);
-                                    console.log('newDate', newDate);
 
-                                    console.log((today - offset));
-                                    console.log(newDate - offset)
-
-                                    let blurb = today - offset;
-                                    let blub = newDate - offset;
-                                    console.log(new Date(newDate));
-                                    console.log(new Date(blub));
-                                    console.log(new Date(blurb));
-                                    //the following line shows time in local time
-                                    console.log(new Date(blurb).toString());
-                                    console.log(new Date(blurb).toDateString());
-
-                                %>
-                            </p>
+                    <div class="app-summary-card">
+                        <div class="app-summary-header">Applications
                         </div>
-                        <div class="flex-column">
-                            <p>Total</p>
-                            <p>
-                                <%=apps.length%>
-                            </p>
-                        </div>
+                        <div class="app-summary-bottom">
+                                <p><b>This week: </b></p>
+                                <p>
+                                    <% let weeklyApps = 0;
+                                const today = new Date();
+                                for (app of apps) { 
+                                    //there are 604800000 ms per week. caclculate how many ms between now and app submission
+                                    if (today - app.dateApplied > 0 && today - app.dateApplied <= 604800000) {
+                                        weeklyApps++;
+                                    }
+                                }
+                                    %>
+                                    <%=weeklyApps%>
+                                </p>
+                                
+                                <p>
+                                    <b>Total:</b></p>
+                                    <p>
+                                    <%=apps.length%>
+                                </p>
+                            </div>
                     </div>
-                    <div class="home-page-app-data-box">
-                        <h5 class="subtitle is-5">Interviews</h5>
-                        <div class="flex-column">
-                            <p>This week</p>
-                            <p>##</p>
+                    <div class="app-summary-card">
+                        <div class="app-summary-header">Interviews
                         </div>
-                        <div class="flex-column">
-                            <p>Total</p>
-                            <p>##</p>
-                        </div>
+                        <div class="app-summary-bottom">
+                                <p><b>This week: </b></p>
+                                <p>
+                                    ##
+                                </p>
+                                
+                                <p>
+                                    <b>Total:</b></p>
+                                    <p>
+                                    ##
+                                </p>
+                            </div>
                     </div>
                 </div>
             </div>
