@@ -19,6 +19,10 @@
     margin-bottom: 80px;
 }
 
+/* label {
+    margin: 10px 0 10px 0;
+} */
+
 .max-width {
     max-width: 800px;
 }
@@ -136,6 +140,7 @@ svg {
     background-image: url('/images/background-blue.svg');
     background-position: center;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 #login-page {
@@ -186,7 +191,7 @@ textarea:focus-visible {
     margin: 20px;
 }
 
-.my-list {
+.my-list, .application-details-page-details {
     margin-right: auto;
     margin-left: auto;
 }
@@ -196,7 +201,7 @@ textarea:focus-visible {
     justify-content: space-around;
 }
 
-.form-set-width, .my-list {
+.form-set-width, .my-list, .application-details-page-details {
     width: 90%;
     max-width: 800px;
 }
@@ -217,7 +222,7 @@ textarea:focus-visible {
     justify-content: space-around;
 }
 
-.button.yellow-solid-button {
+.button.yellow-solid-button, legend {
     background-color: #C8D96F;
     color: #4a4a4a;
 }
@@ -229,6 +234,19 @@ textarea:focus-visible {
 
 .button.yellow-outline-button, .select select:hover {
     border-color: #C8D96F;
+}
+
+fieldset {
+    border: 1px solid #C8D96F;
+    background-color: white;
+    padding: 20px;
+    border-radius: 50px;
+
+}
+
+legend {
+    padding: 5px 10px 5px 10px;
+    border-radius: 50px;
 }
 
 #forgot-password {
@@ -323,6 +341,9 @@ p {
     margin: 5px;
 }
 
+h5.subtitle.is-5 {
+    margin: 20px 0 0 0;
+}
 #filter-index-term {
     margin: 0;
 }

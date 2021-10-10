@@ -4,11 +4,14 @@
 <%- include('../partials/head.ejs'); %>
 
     <body>
-        <div id="create-account-page" class="page main-pages-background">
+        <div id="create-account-page" class="flex-column main-pages-background">
             <img src="/images/app-buddy-light.png" width="275px">
-            <h4 class="subtitle is-4">Create an Account</h4>
+            <!-- <h4 class="subtitle is-4">Create an Account</h4> -->
+            <p style="text-align:center;">by</p>
+                <img src="/images/logo-large.png" width="100px" style="text-align:center;">
             <form id="create-account-form" class="field" action="/user/signup" method="post">
-                <div class="control">
+                <fieldset class="control">
+                    <legend>Create an Account</legend>
                     <label class="label">EMAIL (This will be your username)<input id="set-username"
                             class="input text-input" type="text" placeholder="Enter Email..." name="email" required>
                     </label>
@@ -33,11 +36,11 @@
                         </div>
                     </div>
 
-                    
+                    <p class="flex-center">Already have an account? <a href="/user/login"><strong>&nbsp;Sign in</strong></a></p>
 
-                </div>
+                </fieldset>
             </form>
-            <p>Already have an account? <a href="/user/login"><strong>Sign in</strong></a></p>
+            
         </div>
     </body>
 

@@ -4,9 +4,10 @@ const express = require('express');
 const morgan = require('morgan');
 const methodOverride = require("method-override");
 const indexRouter = require('./controllers/index')
-const studentsRouter = require('./controllers/students')
+// const studentsRouter = require('./controllers/student')
 const userRouter = require('./controllers/user');
-const appRouter = require('./controllers/app');
+const studentRouter = require('./controllers/student');
+const coachRouter = require('./controllers/coach')
 const port = 3000;
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
@@ -50,8 +51,9 @@ app.use(session({
 }))
 
 app.use('/', indexRouter);
-app.use('/student', appRouter);
+app.use('/student', studentRouter);
 app.use('/user', userRouter);
+app.use('/coach', coachRouter);
 
 
 // ////////////////
@@ -135,34 +137,34 @@ app.get('/', (req, res) => {
 //     res.render('student/student_show_application.ejs');
 // })
 
-////////////////
-//COACH VIEWS
-////////////////
+// ////////////////
+// //COACH VIEWS
+// ////////////////
 
-//coach home
-app.get('/coach/home', (req, res) => {
-    res.render('coach/coach_home.ejs');
-})
+// //coach home
+// app.get('/coach/home', (req, res) => {
+//     res.render('coach/coach_home.ejs');
+// })
 
-//coach new
-app.get('/coach/add_application', (req, res) => {
-    // res.render('student/student_new_application.ejs')
-})
+// //coach new
+// app.get('/coach/add_application', (req, res) => {
+//     // res.render('student/student_new_application.ejs')
+// })
 
-//coach class index
-app.get('/coach/my_classes', (req, res) => {
-    res.render('coach/coach_index_classes.ejs')
-})
+// //coach class index
+// app.get('/coach/my_classes', (req, res) => {
+//     res.render('coach/coach_index_classes.ejs')
+// })
 
-//student edit
-app.get('/student/:appID/edit', (req, res) => {
-    res.render('student/student_edit_application.ejs')
-})
+// //student edit
+// app.get('/student/:appID/edit', (req, res) => {
+//     res.render('student/student_edit_application.ejs')
+// })
 
-//coach show class
-app.get('/coach/my_classes/:classID', (req, res) => {
-    res.render('coach/coach_show_class.ejs');
-})
+// //coach show class
+// app.get('/coach/my_classes/:classID', (req, res) => {
+//     res.render('coach/coach_show_class.ejs');
+// })
 
 app.listen(process.env.PORT, (req, res) => {
     console.log('job tracker at ', port)

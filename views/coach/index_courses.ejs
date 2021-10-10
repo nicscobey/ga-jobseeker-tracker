@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head.ejs'); %>
+
+
+    <body>
+        <%- include('../partials/navbar.ejs') %>
+            <div id="search-applications-page" class="in-app-page">
+                <h3 class="title is-3">My Classes</h3>
+                <!-- <div class="flex-center">
+                    <a href="">
+                        <button type="submit"
+                        class="fixed-size-button button is-rounded is-primary yellow-solid-button">Enter a New Application</button>
+                    </a>
+                </div>
+                
+                <hr> -->
+                <form class="control flex-column" id="filter-index-courses">
+                    <div class="field flex-center">
+                        <div class="control has-icons-left search-field ">
+                            <input type="search" class="yellow-outline-button button fixed-size-button search-field-left"
+                                placeholder="Search for a course..." id="filter-index-term">
+                            <span class="icon is-small is-left search-icon">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </div>
+                        <div class="field select">
+                            <select id="sort-my-apps" class="search-field search-field-right yellow-outline-button button">
+                                <option class="placeholder-color" value="" disabled selected>Sort By...</option>
+                                <option value="Course Name">Course Name</option>
+                                <option value="Graduation Date">Graduation Date</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button type="submit"
+                        class="fixed-size-button button is-rounded is-primary yellow-solid-button">Search</button>
+                </form>
+                <article>
+                    
+                    <div class="my-list">
+                        
+                        <p class="flex-center">
+                            Showing&nbsp;<b><%=courses.length%></b>&nbsp;result<%if (courses.length !== 1) {%>s<%}%>
+                        </p>
+                        
+                        <% for (course of courses) {%>
+                            <div class="job-card">
+                                <div class="job-card-header">
+                                    <a href="/coach/my_classes/<%=course.courseName%>" class="title is-6 job-card-employer">
+                                        <%=course.courseName%>
+                                    </a>
+                                    <div class="card-popout job-card-popout-rejected" id="popout-<%=course.courseName%>">
+                                                        <p><a class="card-popout-link" href="/coach/my_classes/<%=course.courseName%>">Review</a></p>
+                                                        <p>
+                                                            <a class="card-popout-link" href="/coach/my_classes/<%=course.courseName%>/edit">Update</a>
+                                                        </p>
+                                    </div>
+                                    <div id="ellipse-container-<%=course._id%>" class="ellipse-container">
+                                        <i class="fas fa-ellipsis-v job-card-ellipse"></i>
+                                    </div>
+                                </div>
+                                    <div class="job-card-bottom">
+                                        <p>
+                                            <b>Total Students: </b>
+                                            ##
+                                        </p>
+                                    </div>
+                            </div>
+                            <%}%>
+                    </div>
+                </article>
+                
+            </div>
+    </body>
+
+</html>

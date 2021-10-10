@@ -3,30 +3,53 @@
 
 <%- include('../partials/head.ejs'); %>
 
-
     <body>
         <%- include('../partials/navbar.ejs') %>
-            <div id="search-applications-page" class="in-app-page">
+            <div id="home-page" class="in-app-page">
+                <h3 class="title is-3">My Job Tracker</h3>
                 <div class="control flex-column">
-                    <div class="field">
-                        <p class="control has-icons-left">
-                            <input type="search" class="yellow-outline-button button fixed-size-button is-rounded"
-                                placeholder="Find a Class or Student...">
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-search"></i>
-                            </span>
-                        </p>
-                        <button type="submit"
-                            class="fixed-size-button button is-rounded is-primary yellow-solid-button">Search</button>
-                    </div>
+                    <a href="/coach/my_classes">
+                        <button class="fixed-size-button button is-rounded is-primary yellow-solid-button">My Classes</button>
+                    </a>
+                    <a href="/student/add_application">
+                        <button class="fixed-size-button button is-rounded is-primary yellow-solid-button">My Students</button>
+                    </a>
+                    <a href="/student/my_applications/false/dateApplied/null">
+                        <button class="fixed-size-button button is-rounded is-primary yellow-solid-button">Flagged Students</button>
+                    </a>
                 </div>
-                <hr>
-                <div class="field">
-                    <div id="coach-home-buttons" class="control flex-column">
-                        <a href="/coach/my_classes"><button class="fixed-size-button button is-rounded is-primary">My
-                                Classes</button></a>
-                        <button class="fixed-size-button button is-rounded is-primary">My Students</button>
-                        <button class="fixed-size-button button is-rounded is-primary">Flagged Students</button>
+                <div class="home-page-flex-data max-width">
+
+                    <div class="app-summary-card">
+                        <div class="app-summary-header">Classes
+                        </div>
+                        <div class="app-summary-bottom">
+                                <p><b>In Session: </b></p>
+                                <p>
+                                    <%=courses.length%>
+                                </p>
+                                
+                                <p>
+                                    <b>Total:</b></p>
+                                    <p>##
+                                </p>
+                            </div>
+                    </div>
+                    <div class="app-summary-card">
+                        <div class="app-summary-header">Students
+                        </div>
+                        <div class="app-summary-bottom">
+                                <p><b>In Session: </b></p>
+                                <p>
+                                    ##
+                                </p>
+                                
+                                <p>
+                                    <b>Total:</b></p>
+                                    <p>
+                                    ##
+                                </p>
+                            </div>
                     </div>
                 </div>
             </div>

@@ -32,15 +32,25 @@ router.post('/login', (req, res) => {
         }
         else {
             // check if password matches
+            console.log('user is USER')
+            console.log(user)
             const result = bcrypt.compareSync(password, user.password);
             if (password === user.password) {
                 console.log('yay!')
             }
 
-            if (result) {
+            if (result && user.accountType === "Student") {
                 req.session.loggedIn = true;
                 req.session.email = email;
+                req.session.accountType = user.accountType;
                 res.redirect('/student')
+            }
+            else if (result && user.accountType === "Coach") {
+                req.session.loggedIn = true;
+                req.session.email = email;
+                req.session.accountType = user.accountType;
+                // res.redirect('/student')
+                res.redirect('/coach');
             }
             else {
                 // res.send("Wrong password!");
