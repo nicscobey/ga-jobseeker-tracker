@@ -63,6 +63,30 @@
                             </span>
                         </div>
                     </div>
+
+                    <article class="message" id="password-validation">
+                        <div class="message-body">
+                            <p>Passwords must have:</p>
+                            <div id="password-validation-length" class="password-validation-line">
+                                <i id="password-validation-length-icon" class="fas fa-times"></i>
+                                <p>At least 8 characters</p>
+                            </div>
+                            <div id="password-validation-uppercase"  class="password-validation-line">
+                                <i id="password-validation-uppercase-icon" class="fas fa-times"></i>
+                                <p>An uppercase character</p>
+                            </div>
+                            <div id="password-validation-lowercase"  class="password-validation-line">
+                                <i id="password-validation-lowercase-icon" class="fas fa-times"></i>
+                                <p>A lowercase character</p>
+                            </div>
+                            <div id="password-validation-number"  class="password-validation-line">
+                                <i id="password-validation-number-icon" class="fas fa-times"></i>
+                                <p>A number</p>
+                            </div>
+                        </div>
+                    </article>
+
+
                     <div class="field flex-center">
                         <div class="control has-icons-right search-field ">
                             <label class="label" for="confirm-password">Confirm Password</label>
@@ -73,6 +97,11 @@
                             </span>
                         </div>
                     </div>
+                    <article class="message is-danger" id="password-match-check">
+                        <div class="message-body">
+                            <p id="password-match-text">Passwords must match</p>
+                        </div>
+                    </article>
 
                     <!-- <label class="label">EMAIL (This will be your username)<input id="set-username"
                             class="input text-input" type="text" placeholder="Enter Email..." name="email" required>
@@ -99,11 +128,10 @@
                     </div>
 
                     <p class="flex-center">Already have an account? <a href="/user/login"><strong>&nbsp;Sign in</strong></a></p>
-
                 </fieldset>
-            </form>
-            
+            </form>           
         </div>
+
     </body>
 
 </html>

@@ -77,27 +77,18 @@ router.get('/signup', (req, res) => {
 router.post('/signup', async (req, res) => {
     req.body.password = await bcrypt.hash(req.body.password, await bcrypt.genSalt(10));
     let email = req.body.email;
-    console.log(email);
-
-    let userExists = false;
 
     User.findOne({email}, (err, user) => {
-        console.log('hi hi');
-        console.log(user);
-        console.log(err);
-        
-        
-        // res.send('user already exists');
+        //check if user already exists
+        if (user) {
+            res.render('user/signup.ejs', {error: true})
+        }
+        else {
+            User.create(req.body, (err, user) => {
+                res.redirect('/user/login');
+            })
+        }
     })
-
-    if (userExists) {
-        res.render('user/signup.ejs', {error: true})
-    }
-    else {
-        User.create(req.body, (err, user) => {
-            res.redirect('/user/login');
-        })
-    }
 })
 
 module.exports = router;

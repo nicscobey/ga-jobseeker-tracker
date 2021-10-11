@@ -51,7 +51,29 @@
                     </p>
                     
                 </div>
+
+                <div class="modal" id="show-app-modal">
+                    <div class="modal-background"></div>
+                    <div class="modal-card">
+                        <header class="modal-card-head">
+                            <p class="modal-card-title">Delete Application?</p>
+                            <button class="delete" aria-label="close"></button>
+                        </header>
+                        <section class="modal-card-body">
+                            Are you sure you wish to delete all data related to your application for <b><%=app.title%></b> at <b><%=app.employer%></b>?
+                        </section>
+                        <footer class="modal-card-foot">
+                            <a>
+                                <button class="button is-danger">Delete</button>
+                            </a>
+                            <button class="button">Cancel</button>
+                        </footer>
+                    </div>
+                </div>
             </div>
+
+
+        
     </body>
 
 </html>
