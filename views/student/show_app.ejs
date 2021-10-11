@@ -21,34 +21,35 @@
                     </a>
                 </div> -->
                 <div class="application-details-page-details margin-20px">
-                    <h3 class="subtitle is-3 no-margin center-text">
-                        <%=app.title%>
+                    <h3 class="subtitle is-3 center-text">
+                        <b><%=app.title%></b>
                     </h3>
-                    <h5 class="subtitle is-5 no-margin center-text">
-                        <%=app.employer%>
+                    <h5 class="subtitle is-5 center-text">
+                        <b><%=app.employer%></b>
                     </h5>
-                    <h5 class="subtitle is-5 no-margin center-text">Date Applied: <% const months={ 0: "January" , 1: "February" , 2: "March" , 3: "April" , 4: "May" ,
+                    <h5 class="subtitle is-5 center-text"><b>Date Applied: </b><% const months={ 0: "January" , 1: "February" , 2: "March" , 3: "April" , 4: "May" ,
                         5: "June" , 6: "July" , 7: "August" , 8: "September" , 9: "October" , 10: "November" ,
                         11: "December" } %><%const month=app.dateApplied.getMonth()%>
                         <%const date=`${months[app.dateApplied.getMonth()]}
                             ${app.dateApplied.getDate()}, ${app.dateApplied.getFullYear()}`%>
                             <%=date%>
                     </h5>
-                    <h5 class="subtitle is-5 no-margin center-text">Status: <%=app.status%>
+                    <h5 class="subtitle is-5 no-margin center-text"><b>Status: </b><%=app.status%>
                     </h5>
+                    <a href="/student/<%=app._id%>/edit" class="flex-center margin-20px">
+                        <button class="fixed-size-button button is-rounded is-primary yellow-solid-button">Update</button>
+                    </a>
                     <div class="app-details">
-                        <h5 class="subtitle is-5">Job Description</h5>
+                        <h5 class="subtitle is-5"><b>Job Description</b></h5>
                         <p>
                             <%=app.jobDescription%>
                         </p>
                     </div>
-                    <h5 class="subtitle is-5">Notes</h5>
+                    <h5 class="subtitle is-5"><b>Notes</b></h5>
                     <p>
                         <%=app.notes%>
                     </p>
-                    <a href="/student/<%=app._id%>/edit" class="flex-center">
-                        <button class="fixed-size-button button is-rounded is-primary yellow-solid-button">Update</button>
-                    </a>
+                    
                 </div>
             </div>
     </body>

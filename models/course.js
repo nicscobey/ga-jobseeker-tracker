@@ -1,6 +1,7 @@
 const mongoose = require('./connection');
 require('dotenv').config();
-const Student = require('./user')
+// const Student = require('./user').userSchema;
+
 
 const { Schema, model } = mongoose;
 const courseSchema = new Schema(

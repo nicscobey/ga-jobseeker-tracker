@@ -4,7 +4,7 @@
 <%- include('../partials/head.ejs'); %>
 
     <body>
-        <div id="login-page" class="page main-pages-background">
+        <div id="" class="flex-column main-pages-background login-page">
             <img src="/images/app-buddy-light.png" width="275px">
             <p style="text-align:center;">by</p>
                 <img src="/images/logo-large.png" width="100px" style="text-align:center;">
@@ -16,17 +16,64 @@
                         <div class="message-body">
                           Incorrect username or password!
                         </div>
-                      </article>
-                      <%}%>
-                      <legend>Log In</legend>
-                    <label class="label">
-                        EMAIL<input name="email" id="enter-username" class="input text-input" type="text"
+                    </article>
+                    <%}%>
+                    <legend>Log In</legend>
+                    
+
+
+                      <!-- <div class="field">
+                        <label class="label">Email</label>
+                        <div class="control has-icons-left has-icons-right">
+                          <input class="input" type="text" placeholder="Email" name="email">
+                          <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                          </span>
+                          <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                          </span>
+                        </div>
+                      </div> -->
+                    
+                    <div class="field flex-center">
+                        <div class="control has-icons-right search-field ">
+                            <label class="label" for="email">Email</label>
+
+                            <input name="email" class="input text-input" type="text"
                             placeholder="Enter Email..." required>
-                    </label>
-                    <label class="label">
-                        PASSWORD<input name="password" id="enter-password" class="input text-input" type="password"
+                            <!-- <input type="search" class="yellow-outline-button button fixed-size-button search-field-left"
+                                placeholder="Search for an app..." id="filter-index-term"> -->
+                            <span class="icon is-small is-right search-icon">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="field flex-center">
+                        <div class="control has-icons-right search-field ">
+                            <label class="label" for="password">Password</label>
+
+                            <input name="password" class="input text-input" type="password"
                             placeholder="Enter Password..." required>
+                            <!-- <input type="search" class="yellow-outline-button button fixed-size-button search-field-left"
+                                placeholder="Search for an app..." id="filter-index-term"> -->
+                            <span class="icon is-small is-right search-icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    
+                      <!-- <label class="label" for="email">
+                        Email
                     </label>
+                    <input name="email" id="enter-username" class="input text-input" type="text"
+                            placeholder="Enter Email..." required>
+                    <label class="label" for="password">
+                        Password
+                    </label>
+                    <input name="password" id="enter-password" class="input text-input" type="password"
+                            placeholder="Enter Password..." required> -->
 
                     <a id="forgot-password">Forgot Password?</a>
                     <div class="field">

@@ -143,10 +143,10 @@ svg {
     background-attachment: fixed;
 }
 
-#login-page {
+/* #login-page {
     align-items: center;
     justify-content: space-evenly;
-}
+} */
 
 #home-page, #applications-page {
     align-items: center;
@@ -187,7 +187,12 @@ textarea:focus-visible {
     border-radius: 0;
 }
 
-#login-form, #create-account-form, .my-list, .margin-20px {
+form, .field:not(:last-child) {
+    margin: 20px 0 0 0;
+}
+
+
+.my-list, .margin-20px {
     margin: 20px;
 }
 
@@ -201,7 +206,12 @@ textarea:focus-visible {
     justify-content: space-around;
 }
 
-.form-set-width, .my-list, .application-details-page-details {
+.form-set-width {
+    width: 90%;
+    max-width: 500px;
+}
+
+.my-list, .application-details-page-details {
     width: 90%;
     max-width: 800px;
 }
@@ -254,8 +264,9 @@ legend {
     margin-right: 0;
 }
 
-#create-account-page {
+#create-account-page, .login-page {
     align-items: center;
+    padding-bottom: 30px;
 }
 
 .flex-column {
@@ -348,6 +359,7 @@ h5.subtitle.is-5 {
     margin: 0;
 }
 
+
 .card-popout {
     position: absolute;
     width: 150px;
@@ -397,9 +409,14 @@ h5.subtitle.is-5 {
 
 #sort-my-apps {
     color: #cbcbcb;
+    width: 120px;
 }
 .color-gray {
     color: #4a4a4a;
+}
+
+#include-rejected-apps {
+    margin-top: 10px;
 }
 
 .ellipse-container:hover {
@@ -437,6 +454,10 @@ h5.subtitle.is-5 {
 
 .app-details-button, .icon {
     margin: 10px;
+}
+
+.control.has-icons-left .icon, .control.has-icons-right .icon {
+    top: auto;
 }
 
 .no-margin {
@@ -483,8 +504,10 @@ h5.subtitle.is-5 {
     }
 }
 
-label {
-    margin-top: 20px;
+.label, .label:not(:last-child) {
+    margin: 20px auto 0 auto;
+    font-weight: 400;
+    font-size: .85rem;
 }
 
 .fixed-textarea {

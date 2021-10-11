@@ -15,7 +15,7 @@ const userSchema = new Schema(
         password: { type: String, required: true },
         email: { type: String, required: true, unique: true },
         accountType: { type: String, default: "Student", required: true },
-        courseName: String
+        course: String
         // apps: [
         //     {
         //         title: String,

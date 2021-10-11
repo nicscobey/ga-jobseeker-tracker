@@ -1,5 +1,10 @@
 // const { search } = require("../../controllers");
 
+// const mongoose = require('mongoose');
+// const express = require('express');
+
+// const MongoStore = require('connect-mongo');
+
 console.log('hey');
 
 const popouts = document.querySelectorAll('.card-popout');
@@ -36,28 +41,28 @@ $('.navbar-plus').on('click', () => {
     $('.navbar-plus').toggleClass('is-active');
 })
 
-$('#restaurant-page-bottom-about-link').on('click', (event) => {
-    console.log('A')
-    console.log(event.target);
-})
+// $('#restaurant-page-bottom-about-link').on('click', (event) => {
+//     console.log('A')
+//     console.log(event.target);
+// })
 
-let restaurantPageBottomLinks = document.querySelectorAll('.restaurant-page-bottom-link');
-let restaurantPageBottomSections = document.querySelectorAll('.restaurant-page-bottom-section');
+// let restaurantPageBottomLinks = document.querySelectorAll('.restaurant-page-bottom-link');
+// let restaurantPageBottomSections = document.querySelectorAll('.restaurant-page-bottom-section');
 
 
-restaurantPageBottomLinks.forEach((link, index) => {
-    $(link).on('click', () => {
-        restaurantPageBottomLinks.forEach((link) => {
-            $(link).removeClass('is-active');
-        })
+// restaurantPageBottomLinks.forEach((link, index) => {
+//     $(link).on('click', () => {
+//         restaurantPageBottomLinks.forEach((link) => {
+//             $(link).removeClass('is-active');
+//         })
 
-        restaurantPageBottomSections.forEach((section) => {
-            $(section).addClass('is-hidden');
-        });
-        $(link).toggleClass('is-active');
-        $(restaurantPageBottomSections[index]).toggleClass('is-hidden');
-    })
-})
+//         restaurantPageBottomSections.forEach((section) => {
+//             $(section).addClass('is-hidden');
+//         });
+//         $(link).toggleClass('is-active');
+//         $(restaurantPageBottomSections[index]).toggleClass('is-hidden');
+//     })
+// })
 
 // open/close job app options on student index page
 $(document).on('click', (event) => {

@@ -6,24 +6,24 @@
     <body>
         <%- include('../partials/navbar.ejs') %>
             <div id="add-application-page" class="in-app-page flex-center">
-                <h4 class="subtitle is-4">Edit an Application</h4>
-                <form action="/student/<%=app._id%>?_method=PUT" method="POST" id="create-account-form" class="field">
+                <h3 class="subtitle is-3">Edit an Application</h3>
+                <form action="/student/<%=app._id%>?_method=PUT" method="POST" id="create-account-form" class="field form-set-width">
                     <div class="control">
                         <label class="label">
-                            JOB TITLE<input name="title" class="input text-input" type="text" value="<%=app.title%>">
+                            Job Title<input name="title" class="input text-input" type="text" value="<%=app.title%>">
                         </label>
                         <label class="label">
-                            COMPANY<input name="employer" class="input text-input" type="text"
+                            Company<input name="employer" class="input text-input" type="text"
                                 value="<%=app.employer%>">
                         </label>
                         <%const date=`${app.dateApplied.getFullYear()}-${app.dateApplied.getMonth() +
                             1}-${app.dateApplied.getDate()}`%>
                             <label class="label">
-                                DATE APPLIED<input name="dateApplied" class="input text-input" type="date"
+                                Date Applied<input name="dateApplied" class="input text-input" type="date"
                                     value="<%=date%>">
                             </label>
                             <label class="label">
-                                STATUS
+                                Status
                                 <select name="status">
                                     <option>Applied - No Response</option>
                                     <option>Applied - Under Consideration</option>
@@ -32,17 +32,17 @@
                                 </select>
                             </label>
                             <label class="label">
-                                JOB DESCRIPTION
+                                Job Description
                                 <textarea name="jobDescription" id="job-description-form"
                                     class="fixed-textarea"><%=app.jobDescription%></textarea>
                             </label>
                             <label class="label">
-                                ADDITIONAL NOTES<textarea name="notes" id="additional-job-notes-form"
+                                Additional Notes<textarea name="notes" id="additional-job-notes-form"
                                     class="fixed-textarea"><%=app.notes%></textarea>
                             </label>
 
                             <div class="field">
-                                <div class="control">
+                                <div class="control flex-column">
                                     <input type="submit" class="fixed-size-button button is-rounded is-primary"
                                         value="Update"></input>
                                 </div>

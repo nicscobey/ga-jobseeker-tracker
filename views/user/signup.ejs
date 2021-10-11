@@ -4,7 +4,7 @@
 <%- include('../partials/head.ejs'); %>
 
     <body>
-        <div id="create-account-page" class="flex-column main-pages-background">
+        <div id="create-account-page" class="flex-column main-pages-background login-page">
             <img src="/images/app-buddy-light.png" width="275px">
             <!-- <h4 class="subtitle is-4">Create an Account</h4> -->
             <p style="text-align:center;">by</p>
@@ -12,7 +12,69 @@
             <form id="create-account-form" class="field" action="/user/signup" method="post">
                 <fieldset class="control">
                     <legend>Create an Account</legend>
-                    <label class="label">EMAIL (This will be your username)<input id="set-username"
+
+                    <%if (error) {%>
+
+                        <article class="message is-danger">
+                            <div class="message-body">
+                              User already exists!
+                            </div>
+                        </article>
+                        <%}%>
+
+                    <div class="field flex-center">
+                        <div class="control has-icons-right search-field ">
+                            <label class="label" for="email">Email (This will be your username)</label>
+
+                            <input id="set-email" name="email" class="input text-input" type="text"
+                            placeholder="Enter Email..." required>
+                            <span class="icon is-small is-right search-icon">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field flex-center">
+                        <div class="control has-icons-right search-field ">
+                            <label class="label" for="firstName">First Name</label>
+                            <input name="firstName" class="input text-input" type="text"
+                            placeholder="Enter First Name..." required>
+                            <span class="icon is-small is-right search-icon">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field flex-center">
+                        <div class="control has-icons-right search-field ">
+                            <label class="label" for="lastName">Last Name</label>
+                            <input name="lastName" class="input text-input" type="text"
+                            placeholder="Enter Last Name..." required>
+                            <span class="icon is-small is-right search-icon">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field flex-center">
+                        <div class="control has-icons-right search-field ">
+                            <label class="label" for="password">Password</label>
+                            <input id="set-password" name="password" class="input text-input" type="password"
+                            placeholder="Set Password..." required>
+                            <span class="icon is-small is-right search-icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field flex-center">
+                        <div class="control has-icons-right search-field ">
+                            <label class="label" for="confirm-password">Confirm Password</label>
+                            <input id="confirm-password" name="confirm-password" class="input text-input" type="password"
+                            placeholder="Confirm Password..." required>
+                            <span class="icon is-small is-right search-icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- <label class="label">EMAIL (This will be your username)<input id="set-username"
                             class="input text-input" type="text" placeholder="Enter Email..." name="email" required>
                     </label>
                     <label class="label">FIRST NAME<input id="set-first-name" class="input text-input" type="text"
@@ -26,10 +88,10 @@
                     </label>
                     <label class="label">CONFIRM PASSWORD<input id="confirm-password" class="input text-input"
                             type="password" placeholder="Enter Password..." name="confirm-password" required>
-                    </label>
+                    </label> -->
                     <a id="forgot-password">Forgot Password?</a>
                     <div class="field">
-                        <div id="account-buttons" class="control">
+                        <div id="account-buttons" class="control flex-column">
                             <input class="fixed-size-button button is-rounded is-primary" type="submit" value="Create
                             Account"></input>
                             <a href="/" class="fixed-size-button button is-rounded is-primary-inverted">Cancel</a>
