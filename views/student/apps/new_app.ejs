@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../partials/head.ejs'); %>
+<%- include('../../partials/head.ejs'); %>
 
 
     <body>
-        <%- include('../partials/navbar.ejs') %>
+        <%- include('../../partials/navbar.ejs') %>
             <div id="add-application-page" class="in-app-page flex-center">
                 <h3 class="title is-3">Add an Application</h3>
-                <form action="/student/add_application" method="post" id="create-account-form"
+                <form action="/student/apps/add_application" method="post"
                     class="field form-set-width">
                     <div class="control">
                         <label class="label">
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                 </form>
-                <a href="/student">
+                <a href="/student/apps/my_applications/false/dateApplied/null">
                     <button class="fixed-size-button button is-rounded">Cancel</button>
                 </a>
             </div>

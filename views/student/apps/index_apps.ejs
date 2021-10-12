@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../partials/head.ejs'); %>
+<%- include('../../partials/head.ejs'); %>
 
 
     <body>
-        <%- include('../partials/navbar.ejs') %>
+        <%- include('../../partials/navbar.ejs') %>
             <div id="search-applications-page" class="in-app-page">
                 <h3 class="title is-3">My Applications</h3>
                 <!-- <div class="flex-center">
@@ -66,7 +66,7 @@
                         
                         <p class="flex-center">
                             Showing&nbsp;<b><%=apps.length%></b>&nbsp;result<%if (apps.length !== 1) {%>s<%}%><% if (searchTerm !== "" && searchTerm !== "null") {%>&nbsp;for&nbsp;<b><%=searchTerm%></b><%}%>&nbsp;&nbsp;&nbsp;
-                            <a href="/student/my_applications/false/dateApplied/null">
+                            <a href="/student/apps/my_applications/false/dateApplied/null">
                                 <button type="submit"
                                 class="is-small button is-rounded yellow-outline-button">Show all active applications</button>
                             </a>
@@ -75,21 +75,21 @@
                         <% for (app of apps) {%>
                             <div class="job-card">
                                 <div class="job-card-header">
-                                    <a href="/student/<%=app._id%>" class="title is-6 job-card-employer">
+                                    <a href="/student/apps/<%=app._id%>" class="title is-6 job-card-employer">
                                         <%=app.employer%>
                                     </a>
                                     <div class="card-popout <% if (app.status !== "Rejected" ) {%>
                                         job-card-popout<%}%>
                                             <% if (app.status==="Rejected" ) {%>
                                                 job-card-popout-rejected<%}%>" id="popout-<%=app._id%>">
-                                                        <p><a class="card-popout-link" href="/student/<%=app._id%>">Review</a></p>
+                                                        <p><a class="card-popout-link" href="/student/apps/<%=app._id%>">Review</a></p>
                                                         <p>
-                                                            <a class="card-popout-link" href="/student/<%=app._id%>/edit">Update</a>
+                                                            <a class="card-popout-link" href="/student/apps/<%=app._id%>/edit">Update</a>
                                                         </p>
                                                         
                                                         <% if (app.status !=="Rejected" ) { %>
-                                                            <form action="/student/<%=app._id%>/rejected?_method=PUT"
-                                                                method="POST">
+                                                            <form action="/student/apps/<%=app._id%>/rejected?_method=PUT"
+                                                                method="POST" class="no-margin">
                                                                 <input type="submit" class="rejected-button card-popout-link"
                                                                     value="Mark as Rejected">
                                                                 </input>

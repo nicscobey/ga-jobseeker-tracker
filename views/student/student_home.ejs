@@ -7,17 +7,33 @@
         <%- include('../partials/navbar.ejs') %>
             <div id="home-page" class="in-app-page">
                 <h3 class="title is-3">My Job Tracker</h3>
-                <div class="control flex-column">
-                    <a href="">
-                        <button class="fixed-size-button button is-rounded is-primary yellow-solid-button">Complete Weekly Check-In</button>
-                    </a>
-                    <a href="/student/add_application">
-                        <button class="fixed-size-button button is-rounded is-primary yellow-solid-button">Record New Application</button>
-                    </a>
-                    <a href="/student/my_applications/false/dateApplied/null">
-                        <button class="fixed-size-button button is-rounded is-primary yellow-solid-button">View My Applications</button>
-                    </a>
+                <div class="flex-center">
+                    <div class="control flex-column">
+                        <!-- <a href="">
+                            <button class="fixed-size-button button is-rounded is-primary yellow-solid-button">Complete Weekly Check-In</button>
+                        </a> -->
+                        <a href="/student/apps/add_application">
+                            <button class="fixed-size-button button is-rounded is-primary yellow-solid-button">Record New Application</button>
+                        </a>
+                        <a href="/student/apps/my_applications/false/dateApplied/null">
+                            <button class="fixed-size-button button is-rounded is-primary yellow-solid-button">View My Applications</button>
+                        </a>
+                        
+                    </div>
+                    <div class="control flex-column">
+                        <!-- <a href="">
+                            <button class="fixed-size-button button is-rounded is-primary yellow-solid-button">Complete Weekly Check-In</button>
+                        </a> -->
+                        <a href="/student/contacts/add_contact">
+                            <button class="fixed-size-button button is-rounded is-primary yellow-solid-button">Record New Contact</button>
+                        </a>
+                        <a href="/student/contacts/my_contacts">
+                            <button class="fixed-size-button button is-rounded is-primary yellow-solid-button">View My Contacts</button>
+                        </a>
+                        
+                    </div>
                 </div>
+                
                 <div class="home-page-flex-data max-width">
 
                     <div class="app-summary-card">
@@ -42,6 +58,22 @@
                                     <b>Total:</b></p>
                                     <p>
                                     <%=apps.length%>
+                                </p>
+                            </div>
+                    </div>
+                    <div class="app-summary-card">
+                        <div class="app-summary-header">Contacts
+                        </div>
+                        <div class="app-summary-bottom">
+                                <p><b>This week: </b></p>
+                                <p>
+                                    ##
+                                </p>
+                                
+                                <p>
+                                    <b>Total:</b></p>
+                                    <p>
+                                    <%=contacts.length%>
                                 </p>
                             </div>
                     </div>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../../partials/head.ejs'); %>
+
+    <body>
+        <%- include('../../partials/navbar.ejs') %>
+            <div id="add-application-page" class="in-app-page flex-center">
+                <h3 class="subtitle is-3">Edit an Application</h3>
+                <form action="/student/contacts/<%=contact._id%>?_method=PUT" method="POST" class="field form-set-width">
+                    <div class="control">
+                        <label class="label">
+                            First Name
+                            <input name="firstName" class="input text-input" type="text" value="<%=contact.firstName%>">
+                        </label>
+                        <label class="label">
+                            Last Name
+                            <input name="lastName" class="input text-input" type="text" value="<%=contact.lastName%>">
+                        </label>
+                        <label class="label">
+                            Email
+                            <input name="email" class="input text-input" type="text"  value="<%=contact.email%>">
+                        </label>
+                        <label class="label">
+                            Phone
+                            <input name="phone" class="input text-input" type="text"  value="<%=contact.phone%>">
+                        </label>
+                        <label class="label">
+                            Employer
+                            <input name="employer" class="input text-input" type="text"  value="<%=contact.employer%>">
+                        </label>
+                        <%const date=`${contact.latestContact.getFullYear()}-${contact.latestContact.getMonth() +
+                            1}-${contact.latestContact.getDate()}`%>
+                        <label class="label">
+                            Last Contacted
+                            <input name="latestContact" class="input text-input" type="date" value="<%=date%>">
+                        </label>
+                        <label class="label">
+                            Notes
+                            <textarea name="notes" class="fixed-textarea" id="additional-job-notes-form"><%=contact.notes%></textarea>
+                        </label>
+                        <div class="field">
+                            <div class="control flex-column">
+                                <input type="submit" class="fixed-size-button button is-rounded is-primary"></input>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <a href="/student/contacts/<%=contact._id%>">
+                    <button class="fixed-size-button button is-rounded">Cancel</button>
+                </a>
+            </div>
+    </body>
+
+</html>

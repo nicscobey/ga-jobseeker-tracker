@@ -106,7 +106,7 @@ $('#filter-index-form').on('submit', (event)=> {
     console.log(includeRejected);
     console.log(sortBy);
     console.log(searchTerm);
-    $('#filter-index-form').attr('action', `/student/my_applications/${includeRejected}/${sortBy}/${searchTerm}`)
+    $('#filter-index-form').attr('action', `/student/apps/my_applications/${includeRejected}/${sortBy}/${searchTerm}`)
 })
 
 // $('#sort-my-apps').on('change', (event)=> {
@@ -261,4 +261,19 @@ $('#create-account-form').on('submit', (event)=> {
 })
 
 //modal event listeners
-$('.')
+$('.show-app-delete-button').on('click', (event)=> {
+    console.log(event.target);
+})
+
+$('.show-app-close-modal').on('click', (event)=> {
+    $(event.target).parent().parent().parent().toggleClass('is-active')
+    
+})
+
+$('.delete-app-button').on('click', (event)=> {
+    $('#show-app-modal').toggleClass('is-active')
+})
+
+$('.cancel-delete-button').on('click', (event)=> {
+    $('#show-app-modal').toggleClass('is-active')
+})

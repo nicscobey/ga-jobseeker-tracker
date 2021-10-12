@@ -1,6 +1,6 @@
 const mongoose = require('./connection');
 require('dotenv').config();
-// const Student = require('./user').userSchema;
+// const Student = require('./user');
 
 
 const { Schema, model } = mongoose;

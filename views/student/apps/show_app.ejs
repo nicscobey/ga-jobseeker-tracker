@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../partials/head.ejs'); %>
+<%- include('../../partials/head.ejs'); %>
 
 
     <body>
 
 
-        <%- include('../partials/navbar.ejs') %>
+        <%- include('../../partials/navbar.ejs') %>
             <div id="application-details-page" class="in-app-page">
                 <!-- <div class="application-details-page-buttons">
                     <a href="/student/my_applications/false/dateApplied/null">
@@ -36,7 +36,7 @@
                     </h5>
                     <h5 class="subtitle is-5 no-margin center-text"><b>Status: </b><%=app.status%>
                     </h5>
-                    <a href="/student/<%=app._id%>/edit" class="flex-center margin-20px">
+                    <a href="/student/apps/<%=app._id%>/edit" class="flex-center margin-20px">
                         <button class="fixed-size-button button is-rounded is-primary yellow-solid-button">Update</button>
                     </a>
                     <div class="app-details">
@@ -51,22 +51,25 @@
                     </p>
                     
                 </div>
+                <div class="flex-center margin-20px">
+                    <button class="fixed-size-button button is-rounded yellow-outline-button delete-app-button">Delete</button>
+                </div>
 
                 <div class="modal" id="show-app-modal">
                     <div class="modal-background"></div>
                     <div class="modal-card">
                         <header class="modal-card-head">
                             <p class="modal-card-title">Delete Application?</p>
-                            <button class="delete" aria-label="close"></button>
+                            <button class="delete show-app-close-modal" aria-label="close"></button>
                         </header>
                         <section class="modal-card-body">
-                            Are you sure you wish to delete all data related to your application for <b><%=app.title%></b> at <b><%=app.employer%></b>?
+                            Are you sure you wish to delete all data related to your application for <b><%=app.title%></b> at <b><%=app.employer%></b>? Once deleted, this data cannot be recovered.
                         </section>
                         <footer class="modal-card-foot">
-                            <a>
-                                <button class="button is-danger">Delete</button>
-                            </a>
-                            <button class="button">Cancel</button>
+                            <form class="no-margin" action="/student/apps/<%=app._id%>?_method=DELETE" method="POST">
+                                <input type="submit" class="button is-danger show-app-delete-button" value="Delete"></input>
+                            </form>
+                            <button class="button cancel-delete-button">Cancel</button>
                         </footer>
                     </div>
                 </div>

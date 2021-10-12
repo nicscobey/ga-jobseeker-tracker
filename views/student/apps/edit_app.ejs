@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../partials/head.ejs'); %>
+<%- include('../../partials/head.ejs'); %>
 
     <body>
-        <%- include('../partials/navbar.ejs') %>
+        <%- include('../../partials/navbar.ejs') %>
             <div id="add-application-page" class="in-app-page flex-center">
                 <h3 class="subtitle is-3">Edit an Application</h3>
-                <form action="/student/<%=app._id%>?_method=PUT" method="POST" id="create-account-form" class="field form-set-width">
+                <form action="/student/apps/<%=app._id%>?_method=PUT" method="POST" class="field form-set-width">
                     <div class="control">
                         <label class="label">
                             Job Title<input name="title" class="input text-input" type="text" value="<%=app.title%>">
@@ -49,7 +49,7 @@
                             </div>
                     </div>
                 </form>
-                <a href="/student/<%=app._id%>">
+                <a href="/student/apps/<%=app._id%>">
                     <button class="fixed-size-button button is-rounded">Cancel</button>
                 </a>
             </div>
