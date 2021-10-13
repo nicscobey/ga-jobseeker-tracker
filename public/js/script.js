@@ -1,68 +1,18 @@
-// const { search } = require("../../controllers");
-
-// const mongoose = require('mongoose');
-// const express = require('express');
-
-// const MongoStore = require('connect-mongo');
-
-console.log('hey');
-
 const popouts = document.querySelectorAll('.card-popout');
 
 $('.navbar-burger').on('click', () => {
-    console.log('boigeh')
     $('#navbarBasicExample').toggle();
     $('.navbar-burger').toggleClass('is-active');
 })
 
-// function openAppOptions(id) {
-
-
-//     console.log(id)
-//     $(event.target).prev().toggle();
-//     $(event.target).toggleClass('color-gray');
-
-// }
-
-// $('.ellipse-container').on('click', (event) => {
-//     console.log(event.target);
-//     $(event.target).prev().toggle();
-//     $(event.target).toggleClass('color-gray');
-// })
-
 $('.navbar-home').on('click', () => {
-    console.log('home')
     $('#navbarBasicExample').css('display', 'none');
     $('.navbar-home').toggleClass('is-active');
 })
 $('.navbar-plus').on('click', () => {
-    console.log('plus')
     $('#navbarBasicExample').css('display', 'none');
     $('.navbar-plus').toggleClass('is-active');
 })
-
-// $('#restaurant-page-bottom-about-link').on('click', (event) => {
-//     console.log('A')
-//     console.log(event.target);
-// })
-
-// let restaurantPageBottomLinks = document.querySelectorAll('.restaurant-page-bottom-link');
-// let restaurantPageBottomSections = document.querySelectorAll('.restaurant-page-bottom-section');
-
-
-// restaurantPageBottomLinks.forEach((link, index) => {
-//     $(link).on('click', () => {
-//         restaurantPageBottomLinks.forEach((link) => {
-//             $(link).removeClass('is-active');
-//         })
-
-//         restaurantPageBottomSections.forEach((section) => {
-//             $(section).addClass('is-hidden');
-//         });
-//         $(link).toggleClass('is-active');
-//         $(restaurantPageBottomSections[index]).toggleClass('is-hidden');
-//     })
-// })
 
 // open/close job app options on student index page
 $(document).on('click', (event) => {
@@ -78,14 +28,6 @@ $(document).on('click', (event) => {
         $(event.target).parent().parent().prev().toggle();
         $(event.target).parent().parent().toggleClass('card-popout-link');
     }
-    // if (!($(event.target).hasClass('card-popout'))) {
-    //     console.log('hi not a popout')
-    //     const cardPopouts = document.querySelectorAll('.card-popout');
-    //     for (let i = 0; i < cardPopouts.length; i++) {
-    //         console.log('yello')
-    //         $(cardPopouts[i]).css('display', 'none');
-    //     }
-    // }
 })
 
 
@@ -93,19 +35,12 @@ $(document).on('click', (event) => {
 
 
 $('#filter-index-form').on('submit', (event)=> {
-    
-    // event.preventDefault();
-    
     const includeRejected = $('#include-rejected-apps').prop('checked');
     const sortBy = $('#sort-my-apps').val();
     let searchTerm = $('#filter-index-term').val();
 
     if (searchTerm === "") searchTerm="null";
 
-    console.log('hey nico man')
-    console.log(includeRejected);
-    console.log(sortBy);
-    console.log(searchTerm);
     $('#filter-index-form').attr('action', `/student/apps/my_applications/${includeRejected}/${sortBy}/${searchTerm}`)
 })
 
@@ -226,14 +161,12 @@ $('#confirm-password').on('focus', ()=> {
         if ($('#confirm-password').val() !== $('#set-password').val()) {
             $('#password-match-check').addClass('is-danger')
             $('#password-match-check').removeClass('is-success')
-            console.log('no match');
             $('#password-match-text').html('Passwords must match');
 
         }
         else {
             $('#password-match-check').addClass('is-success')
             $('#password-match-check').removeClass('is-danger')
-            console.log('match');
             $('#password-match-text').html('Passwords match!');
         }
     })
@@ -252,17 +185,11 @@ $('#create-account-form').on('submit', (event)=> {
         alert('Passwords must match!')
     }
     if (!passwordMeetsRequirements) {
-        console.log('passwordMeetsRequirements', passwordMeetsRequirements)
         event.preventDefault();
         $('#set-password').val('')
         $('#confirm-password').val('')
         alert('Password does not meet security requirements')
     }
-})
-
-//modal event listeners
-$('.show-app-delete-button').on('click', (event)=> {
-    console.log(event.target);
 })
 
 $('.show-app-close-modal').on('click', (event)=> {
