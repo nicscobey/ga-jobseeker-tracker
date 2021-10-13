@@ -10,6 +10,14 @@ Altogether, this application leverages several types of users, with authorizatio
 
 ## Screenshots
 
+![Log in page](public/images/screenshots/main-page.png)
+![Password verification](public/images/screenshots/password-validation.png)
+![Home Page](public/images/screenshots/home-page.png)
+![Home Page](public/images/screenshots/index-page.png)
+![New App Page](public/images/screenshots/new-app-page.png)
+![Show App Page](public/images/screenshots/show-app-page.png)
+
+
 ## Technologies Used
 
 - JavaScript
@@ -26,7 +34,7 @@ Altogether, this application leverages several types of users, with authorizatio
 
 Access the application [here](https://career-engineer-job-tracker.herokuapp.com/)
 
-To get started, created an account, and then log in. Upon logging in, you'll be directed to the dashboard, which provides links to several basic actions and gives an overview of some basic metrics. Upon navigating into the contacts or applications, users have full CRUD functionality, where they can create, read, update, or delete information about their contacts and applications.
+To get started, create an account, and then log in. Upon logging in, you'll be directed to the dashboard, which provides links to several basic actions and gives an overview of some basic metrics. Upon navigating into the contacts or applications, users have full CRUD functionality, where they can create, read, update, or delete information about their contacts and applications.
 
 The applications page also provides a way for users to filter their results by one of several properties: date applied, job title, employer, or status. Additionally, users can search for a specific application by entering a search word or phrase that then filters down the index's results. 
 
@@ -35,3 +43,5 @@ The applications page also provides a way for users to filter their results by o
 Further work is needed to add some additional touches to the Coach views, giving more data about their students and the status of the job search. 
 
 On the Student side, additional work is needed to ensure that the application is tracking data that is relevant and useful for students. To research this, I am currently in conversation with several career coaches to break data points into the categories of optional and required. 
+
+Lastly, I would like to add OAuth to enable account creation/use with google accounts. 
