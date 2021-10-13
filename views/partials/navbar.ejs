@@ -4,31 +4,25 @@
             <i class="fas fa-home fa-2x"></i>
             <p class="navbar-text">Home</p>
         </a>
-        <span class="icon mobile-icon navbar-item is-large">
+        <a class="icon mobile-icon navbar-item is-large">
             <i class="fas fa-briefcase fa-2x"></i>
             <p class="navbar-text">Career</p>
-        </span>
-
-        <span class="icon mobile-icon navbar-item is-large">
-            <i class="fas fa-comments fa-2x"></i>
-            <p class="navbar-text">Community</p>
-        </span>
-
-        <span class="icon mobile-icon navbar-item is-large">
-            <i class="fas fa-user fa-2x"></i>
-            <p class="navbar-text">Profile</p>
-        </span>
-
-        <span class="icon mobile-icon navbar-item navbar-burger is-large">
-            <i class="fas fa-ellipsis-h fa-2x"></i>
-            <p class="navbar-text">More</p>
-        </span>
-        <a href="/student/add_application">
-            <span class="navbar-plus icon mobile-icon navbar-item is-large">
-                <i class="fas fa-plus fa-lg"></i>
-            </span>
         </a>
 
+        <a class="icon mobile-icon navbar-item is-large">
+            <i class="fas fa-comments fa-2x"></i>
+            <p class="navbar-text">Community</p>
+        </a>
+
+        <a class="icon mobile-icon navbar-item is-large">
+            <i class="fas fa-user fa-2x"></i>
+            <p class="navbar-text">Profile</p>
+        </a>
+
+        <div class="icon mobile-icon navbar-item navbar-burger is-large">
+            <i class="fas fa-ellipsis-h fa-2x"></i>
+            <p class="navbar-text">More</p>
+        </div>
     </div>
 
     <div id="navbarBasicExample" class="navbar-menu">
@@ -51,52 +45,43 @@
                     style="text-align:center;"></a>
             <div class="navbar-item navbar-item-desktop has-dropdown is-hoverable navbar-link">
                 <a class="navbar-item-label">
-                    Career
+                    Applications
                 </a>
                 <div class="navbar-dropdown">
-                    <a href="/student/my_applications/false/dateApplied/null" class="navbar-item navbar-item-desktop">
-                        Application Tracker
+                    <a href="/student/apps/add_application" class="navbar-item navbar-item-desktop">
+                        Add an App
                     </a>
-                    <a href="https://nicscobey.github.io/job-board/" target="_blank" class="navbar-item navbar-item-desktop">
-                        Remote Job Board
+                    <a href="/student/apps/my_applications/false/dateApplied/null" class="navbar-item navbar-item-desktop">
+                        View my Apps
                     </a>
                 </div>
             </div>
             <div class="navbar-item navbar-item-desktop has-dropdown is-hoverable navbar-link">
                 <a class="navbar-item-label">
-                    Community
+                    Contacts
                 </a>
                 <div class="navbar-dropdown">
-                    <a class="navbar-item">
-                        Application Tracker
+                    <a href="/student/contacts/add_contact" class="navbar-item">
+                        Add a Contact
                     </a>
-                    <a class="navbar-item">
-                        Job Board
+                    <a href="/student/contacts/my_contacts" class="navbar-item">
+                        View my Contacts
                     </a>
                 </div>
             </div>
-            <!-- <a class="navbar-item navbar-item-desktop has-dropdown is-hoverable">Community</a> -->
-            <!-- <div class="navbar-item has-dropdown-up is-hoverable">
-                    <a class="navbar-link">
-                        More
+            <div class="navbar-item navbar-item-desktop has-dropdown is-hoverable navbar-link">
+                <a class="navbar-item-label">
+                    Resources
+                </a>
+                <div class="navbar-dropdown">
+                    <a href="/student/resources" class="navbar-item">
+                        Resume Templates
                     </a>
-
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item">
-                            About
-                        </a>
-                        <a class="navbar-item">
-                            Jobs
-                        </a>
-                        <a class="navbar-item">
-                            Contact
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item">
-                            Report an issue
-                        </a>
-                    </div>
-                </div> -->
+                    <a href="https://airtable.com/shrYJtJtMJVDGjbUw/tblHBrrgfXjfleyiU" target="_blank" class="navbar-item">
+                        Communication Templates
+                    </a>
+                </div>
+            </div>
         </div>
 
         <div class="navbar-end">
@@ -105,9 +90,6 @@
                     <a href="/user/logout" class="button is-primary is-rounded">
                         <strong>Log Out</strong>
                     </a>
-                    <!-- <a class="button is-light is-rounded">
-                        Log in
-                    </a> -->
                 </div>
             </div>
         </div>

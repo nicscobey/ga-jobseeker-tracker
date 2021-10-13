@@ -8,14 +8,6 @@
         <%- include('../../partials/navbar.ejs') %>
             <div id="search-applications-page" class="in-app-page">
                 <h3 class="title is-3">My Applications</h3>
-                <!-- <div class="flex-center">
-                    <a href="">
-                        <button type="submit"
-                        class="fixed-size-button button is-rounded is-primary yellow-solid-button">Enter a New Application</button>
-                    </a>
-                </div>
-                
-                <hr> -->
                 <form class="control flex-column" id="filter-index-form">
                     <div class="field flex-center">
                         <div class="control has-icons-left search-field ">
@@ -25,7 +17,6 @@
                                 <i class="fas fa-search"></i>
                             </span>
                         </div>
-                        <!-- <div class="field select is-rounded is-small"> -->
                         <div class="field select">
                             <select id="sort-my-apps" class="search-field search-field-right yellow-outline-button button">
                                 <option class="placeholder-color" value="" disabled selected>Sort By...</option>
@@ -45,18 +36,6 @@
                             <input type="checkbox" value="include-rejected-apps" name="include-rejected-apps" id="include-rejected-apps">
                                 <%}%>
                     </div>
-                    <!-- <div class="flex-center">
-                        <p>Sort results by:&nbsp;</p>
-                        <div class="select is-rounded is-small">
-                                <select id="sort-my-apps">
-                                    <option value="">Sort By...</option>
-                                    <option value="Date Applied">Date Applied</option>
-                                    <option value="Job Title">Job Title</option>
-                                    <option value="Company" type="submit" action="">Company</option>
-                                    <option value="Status">Status</option>
-                                </select>
-                        </div>
-                    </div> -->
                     <button type="submit"
                         class="fixed-size-button button is-rounded is-primary yellow-solid-button">Search</button>
                 </form>

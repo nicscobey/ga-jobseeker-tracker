@@ -90,11 +90,11 @@ router.get('/my_classes/:courseID', (req, res) => {
     //     res.render('coach/show_course.ejs', {course});
     // })
 
-    User.find({course: req.params.courseID}, (err, course) => {
-        console.log(students);
+    User.find({course: req.params.courseID}, (err, students) => {
+        // console.log(course);
         console.log(courseID);
         console.log(err);
-        res.render('coach/show_course.ejs', {course, courseID});
+        res.render('coach/show_course.ejs', {students, courseID});
     })
 })
 

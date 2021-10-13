@@ -11,7 +11,8 @@
                 <img src="/images/logo-large.png" width="100px" style="text-align:center;">
             <form id="create-account-form" class="field" action="/user/signup" method="post">
                 <fieldset class="control">
-                    <legend>Create an Account</legend>
+                    <!-- <legend>Create an Account</legend> -->
+                    <h5 class="subtitle is-5 center-text">Sign Up</h5>
 
                     <%if (error) {%>
 
@@ -23,8 +24,8 @@
                         <%}%>
 
                     <div class="field flex-center">
-                        <div class="control has-icons-right search-field ">
-                            <label class="label" for="email">Email (This will be your username)</label>
+                        <div class="control has-icons-right search-field">
+                            <label class="label no-margin" for="email">Email (This will be your username)</label>
 
                             <input id="set-email" name="email" class="input text-input" type="text"
                             placeholder="Enter Email..." required>
@@ -102,24 +103,8 @@
                             <p id="password-match-text">Passwords must match</p>
                         </div>
                     </article>
-
-                    <!-- <label class="label">EMAIL (This will be your username)<input id="set-username"
-                            class="input text-input" type="text" placeholder="Enter Email..." name="email" required>
-                    </label>
-                    <label class="label">FIRST NAME<input id="set-first-name" class="input text-input" type="text"
-                            placeholder="Enter First Name..." name="firstName" required>
-                    </label>
-                    <label class="label">LAST NAME<input id="set-last-name" class="input text-input" type="text"
-                            placeholder="Enter Last Name..." name="lastName" required>
-                    </label>
-                    <label class="label">PASSWORD<input id="set-password" class="input text-input" type="password"
-                            placeholder="Enter Password..." name="password" required>
-                    </label>
-                    <label class="label">CONFIRM PASSWORD<input id="confirm-password" class="input text-input"
-                            type="password" placeholder="Enter Password..." name="confirm-password" required>
-                    </label> -->
-                    <a id="forgot-password">Forgot Password?</a>
-                    <div class="field">
+                    <a id="forgot-password" class="flex-center">Forgot Password?</a>
+                    <div class="field no-margin">
                         <div id="account-buttons" class="control flex-column">
                             <input class="fixed-size-button button is-rounded is-primary" type="submit" value="Create
                             Account"></input>

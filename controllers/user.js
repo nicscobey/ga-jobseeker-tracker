@@ -5,15 +5,6 @@ const { application } = require('express');
 
 const router = express.Router();
 
-// //router middleware
-// router.use((req, res, next) => {
-//     if (req.session.loggedIn) {
-//         next();
-//     } else {
-//         res.redirect('/');
-//     }
-// })
-
 // index log in
 router.get('/login', (req, res) => {
     res.render('user/login.ejs', {error: false});
@@ -27,13 +18,9 @@ router.post('/login', (req, res) => {
     //check if user exists
     User.findOne({ email }, (err, user) => {
         if (!user) {
-            // res.send("User does not exist");
             res.render('user/login.ejs', {error: true});
         }
         else {
-            // check if password matches
-            console.log('user is USER')
-            console.log(user)
             const result = bcrypt.compareSync(password, user.password);
             if (password === user.password) {
                 console.log('yay!')
@@ -49,11 +36,9 @@ router.post('/login', (req, res) => {
                 req.session.loggedIn = true;
                 req.session.email = email;
                 req.session.accountType = user.accountType;
-                // res.redirect('/student')
                 res.redirect('/coach');
             }
             else {
-                // res.send("Wrong password!");
                 res.render('user/login.ejs', {error: true});
             }
         }

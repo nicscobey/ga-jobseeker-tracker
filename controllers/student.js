@@ -1,6 +1,4 @@
 const express = require('express');
-// const User = require('../models/app');
-// const { application } = require('express');
 const App = require('../models/app');
 const Contact = require('../models/contact');
 
@@ -10,7 +8,6 @@ const router = express.Router();
 
 // router middleware
 router.use((req, res, next) => {
-    // console.log("A", req.session.loggedIn)
     if (req.session.loggedIn) {
         next();
     } else {
@@ -59,7 +56,6 @@ router.get('/seedApps', (req, res) => {
 
 
 //seed contacts
-//seed apps
 router.get('/seedContacts', (req, res) => {
     const seedContacts = [
         {
@@ -306,8 +302,6 @@ router.get('/contacts/my_contacts', async (req, res) => {
             return 0;
         })
         
-        // contacts.reverse();
-
         //MAKE THIS ROUTE
         res.render('student/contacts/index_contacts.ejs', { contacts, sortBy: "dateApplied", searchTerm: "" })
     })
@@ -394,7 +388,6 @@ router.get('/contacts/my_contacts', async (req, res) => {
 
 //new contact
 router.get('/contacts/add_contact', (req, res) => {
-    //MAKE THIS ROUTE
     res.render('student/contacts/new_contact.ejs')
 })
 
@@ -412,7 +405,6 @@ router.put('/contacts/:id', (req, res) => {
     const id = req.params.id;
 
     Contact.findByIdAndUpdate(id, req.body, { new: true }, (err, contact) => {
-
         res.redirect(`/student/contacts/${id}`)
     })
 })
@@ -424,7 +416,6 @@ router.post('/contacts/add_contact', (req, res) => {
     if (req.body.latestContact) {
         let contactDate = new Date(req.body.latestContact);
         let contactMS = contactDate.getTime();
-
         let myDate = new Date();
         let offsetMS = myDate.getTimezoneOffset() * 60 * 1000;
         let latestContact = new Date(contactMS + offsetMS);
@@ -444,7 +435,6 @@ router.get('/contacts/:contactID/edit', (req, res) => {
     if (req.body.latestContact) {
         let contactDate = new Date(req.body.latestContact);
         let contactMS = contactDate.getTime();
-
         let myDate = new Date();
         let offsetMS = myDate.getTimezoneOffset() * 60 * 1000;
         let latestContact = new Date(contactMS + offsetMS);
@@ -465,9 +455,9 @@ router.get('/contacts/:contactID', (req, res) => {
     })
 })
 
-
-
-
-
+//resources route
+router.get('/resources', (req, res)=> {
+    res.render('student/resources.ejs')
+})
 
 module.exports = router;

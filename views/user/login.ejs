@@ -4,7 +4,7 @@
 <%- include('../partials/head.ejs'); %>
 
     <body>
-        <div id="" class="flex-column main-pages-background login-page">
+        <div id="" class="main-pages-background login-page page">
             <img src="/images/app-buddy-light.png" width="275px">
             <p style="text-align:center;">by</p>
                 <img src="/images/logo-large.png" width="100px" style="text-align:center;">
@@ -18,26 +18,11 @@
                         </div>
                     </article>
                     <%}%>
-                    <legend>Log In</legend>
-                    
-
-
-                      <!-- <div class="field">
-                        <label class="label">Email</label>
-                        <div class="control has-icons-left has-icons-right">
-                          <input class="input" type="text" placeholder="Email" name="email">
-                          <span class="icon is-small is-left">
-                            <i class="fas fa-user"></i>
-                          </span>
-                          <span class="icon is-small is-right">
-                            <i class="fas fa-check"></i>
-                          </span>
-                        </div>
-                      </div> -->
-                    
+                    <!-- <legend>Log In</legend> -->
                     <div class="field flex-center">
                         <div class="control has-icons-right search-field ">
-                            <label class="label" for="email">Email</label>
+                            
+                            <label class="label no-margin" for="email">Email</label>
 
                             <input name="email" class="input text-input" type="text"
                             placeholder="Enter Email..." required>
@@ -75,8 +60,8 @@
                     <input name="password" id="enter-password" class="input text-input" type="password"
                             placeholder="Enter Password..." required> -->
 
-                    <a id="forgot-password">Forgot Password?</a>
-                    <div class="field">
+                    <a id="forgot-password" class="flex-center" >Forgot Password?</a>
+                    <div class="field no-margin">
                         <div class="control flex-center">
                             <input type="submit" class="fixed-size-button button is-rounded is-primary"
                                 value="Log In"></input>

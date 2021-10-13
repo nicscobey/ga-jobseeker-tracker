@@ -2,6 +2,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
 }
 
 .mobile-icon {
@@ -143,6 +144,7 @@ a.navbar-item-label {
 
 .navbar-text {
     font-size: .8rem;
+    margin-bottom: 0;
 }
 
 svg {
@@ -266,10 +268,10 @@ form, .field:not(:last-child) {
 }
 
 fieldset {
-    border: 1px solid #C8D96F;
+    border: 1px solid rgb(187, 187, 187);
     background-color: white;
     padding: 20px;
-    border-radius: 50px;
+    border-radius: 15px;
 
 }
 
@@ -289,6 +291,13 @@ legend {
 }
 
 .flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#home-buttons {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -494,6 +503,12 @@ h5.subtitle.is-5 {
     margin-top: 0;
 }
 
+@media screen and (min-width: 480px) {
+    #home-buttons {
+        flex-direction: row;
+    }
+}
+
 @media screen and (min-width: 1024px) {
     .navbar-mobile {
         display: none;
@@ -532,4 +547,29 @@ h5.subtitle.is-5 {
 .fixed-textarea {
     width: 100%;
     resize: vertical;
+}
+
+.resume-img {
+    border-radius: 13px;
+}
+
+.resume-img:hover {
+    opacity: 90%;
+}
+
+.resume-template {
+    background-color: black;
+    width: 350px;
+    border: 1px solid #dbdbdb;
+    border-radius: 15px;
+    box-shadow: 0px 4px 18px -2px rgba(0, 0, 0, 0.25);
+    max-width: 400px;
+    margin: 20px;
+}
+
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
