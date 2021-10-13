@@ -30,10 +30,6 @@ $(document).on('click', (event) => {
     }
 })
 
-
-
-
-
 $('#filter-index-form').on('submit', (event)=> {
     const includeRejected = $('#include-rejected-apps').prop('checked');
     const sortBy = $('#sort-my-apps').val();

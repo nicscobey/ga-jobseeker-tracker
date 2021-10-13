@@ -16,8 +16,12 @@
                             Company<input name="employer" class="input text-input" type="text"
                                 value="<%=app.employer%>">
                         </label>
-                        <%const date=`${app.dateApplied.getFullYear()}-${app.dateApplied.getMonth() +
-                            1}-${app.dateApplied.getDate()}`%>
+                        <%
+                        const month = app.dateApplied.getMonth() + 1 > 9 ? app.dateApplied.getMonth() + 1 : "0" + (app.dateApplied.getMonth() + 1);
+
+                        const day = app.dateApplied.getDate()> 9 ? app.dateApplied.getDate() : "0" + app.dateApplied.getDate();
+                        
+                        const date=`${app.dateApplied.getFullYear()}-${month}-${day}`%>
                             <label class="label">
                                 Date Applied<input name="dateApplied" class="input text-input" type="date"
                                     value="<%=date%>">

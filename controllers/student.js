@@ -231,6 +231,15 @@ router.delete('/apps/:appID', (req, res) => {
 router.put('/apps/:id', (req, res) => {
     const id = req.params.id;
 
+    let appDate = new Date(req.body.dateApplied);
+    let appMS = appDate.getTime();
+
+    let myDate = new Date();
+    let offsetMS = myDate.getTimezoneOffset() * 60 * 1000;
+    let dateApplied = new Date(appMS + offsetMS);
+
+    req.body.dateApplied = new Date(dateApplied);
+
     App.findByIdAndUpdate(id, req.body, { new: true }, (err, app) => {
 
         res.redirect(`/student/apps/${id}`)
@@ -266,6 +275,7 @@ router.post('/apps/add_application', (req, res) => {
 //edit app
 router.get('/apps/:appID/edit', (req, res) => {
     const id = req.params.appID;
+    
     App.findById(id, (err, app) => {
         res.render('student/apps/edit_app.ejs', { app })
     })
@@ -403,6 +413,15 @@ router.delete('/contacts/:contactID', (req, res) => {
 //update contact
 router.put('/contacts/:id', (req, res) => {
     const id = req.params.id;
+
+    let contactDate = new Date(req.body.latestContact);
+    let contactMS = contactDate.getTime();
+
+    let myDate = new Date();
+    let offsetMS = myDate.getTimezoneOffset() * 60 * 1000;
+    let latestContact = new Date(contactMS + offsetMS);
+
+    req.body.latestContact = new Date(latestContact);
 
     Contact.findByIdAndUpdate(id, req.body, { new: true }, (err, contact) => {
         res.redirect(`/student/contacts/${id}`)

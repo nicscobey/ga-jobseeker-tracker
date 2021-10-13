@@ -29,8 +29,16 @@
                             Employer
                             <input name="employer" class="input text-input" type="text"  value="<%=contact.employer%>">
                         </label>
-                        <%const date=`${contact.latestContact.getFullYear()}-${contact.latestContact.getMonth() +
-                            1}-${contact.latestContact.getDate()}`%>
+                        <%
+                        const month = contact.latestContact.getMonth() + 1 > 9 ? contact.latestContact.getMonth() + 1 : "0" + (contact.latestContact.getMonth() + 1);
+
+                        const day = contact.latestContact.getDate()> 9 ? contact.latestContact.getDate() : "0" + contact.latestContact.getDate();
+                        
+                        const date=`${contact.latestContact.getFullYear()}-${month}-${day}`%>
+
+
+                        
+
                         <label class="label">
                             Last Contacted
                             <input name="latestContact" class="input text-input" type="date" value="<%=date%>">
