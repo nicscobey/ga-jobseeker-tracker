@@ -8,7 +8,7 @@
         <%- include('../../partials/navbar.ejs') %>
             <div id="search-applications-page" class="in-app-page">
                 <h3 class="title is-3">My Contacts</h3>
-                <form class="control flex-column" id="filter-index-form">
+                <!-- <form class="control flex-column" id="filter-index-form">
                     <div class="field flex-center">
                         <div class="control has-icons-left search-field ">
                             <input type="search" class="yellow-outline-button button fixed-size-button search-field-left"
@@ -29,7 +29,7 @@
                     </div>
                     <button type="submit"
                         class="fixed-size-button button is-rounded is-primary yellow-solid-button">Search</button>
-                </form>
+                </form> -->
                 <article>
                     
                     <div class="my-list">
@@ -63,12 +63,16 @@
                                             <b>Employer: </b>
                                             <%=contact.employer%>
                                         </p>
+                                        
                                         <p><b>Last Contact:</b>
+                                            <% if (contact.latestContact) {%>
                                             <%const month=contact.latestContact.getMonth()%>
                                                 <%const date=`${months[contact.latestContact.getMonth()]}
                                                     ${contact.latestContact.getDate()}, ${contact.latestContact.getFullYear()}`%>
                                                     <%=date%>
+                                                    <%}%>
                                         </p>
+                                        
                                         <p>
                                             <b>Email:</b>
                                             <%=contact.email%>

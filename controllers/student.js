@@ -421,6 +421,10 @@ router.post('/contacts/add_contact', (req, res) => {
         let latestContact = new Date(contactMS + offsetMS);
 
         req.body.latestContact = new Date(latestContact);
+        console.log(req.body.latestContact);
+        console.log(req.body.latestContact.getMonth());
+        console.log(req.body);
+
     }
 
     Contact.create(req.body, (err, app) => {
