@@ -32,9 +32,18 @@
                             Employer
                             <input name="employer" class="input text-input" type="text" placeholder="Enter Employer...">
                         </label>
+                        <%
+                        const today=new Date();
+
+                        const month = today.getMonth() + 1 > 9 ? today.getMonth() + 1 : "0" + (today.getMonth() + 1);
+
+                        const day = today.getDate()> 9 ? today.getDate() : "0" + today.getDate();
+                        
+                        const date=`${today.getFullYear()}-${month}-${day}`%>
+
                         <label class="label">
                             Last Contacted
-                            <input name="latestContact" class="input text-input" type="date" placeholder="">
+                            <input name="latestContact" class="input text-input" type="date" value="<%=date%>">
                         </label>
                         <label class="label">
                             Notes
